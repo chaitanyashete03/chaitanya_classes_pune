@@ -2952,7 +2952,7 @@
             submitBtn.innerText = 'Submitting...';
           }
 
-          // 1. Send data to Google Sheet Apps Script Web App
+          // 1. Send data to Google Sheet Apps Script Web App (SendBeacon prevents browser cancels)
           if (GOOGLE_SHEET_URL && GOOGLE_SHEET_URL.trim() !== '') {
             const params = new URLSearchParams();
             params.append('Timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
@@ -2962,13 +2962,12 @@
             params.append('City', city);
             params.append('Mode', mode);
 
-            // Bypasses browser CORS/Header restrictions with 100% reliability
-            fetch(GOOGLE_SHEET_URL + '?' + params.toString(), {
-              method: 'GET',
-              mode: 'no-cors'
-            }).catch(function (err) {
-              console.warn('Google Sheet submission notice:', err);
-            });
+            const targetUrl = GOOGLE_SHEET_URL + '?' + params.toString();
+            if (navigator.sendBeacon) {
+              navigator.sendBeacon(targetUrl);
+            } else {
+              fetch(targetUrl, { method: 'GET', mode: 'no-cors' });
+            }
           }
 
           // 2. Prepare pre-formatted WhatsApp link
