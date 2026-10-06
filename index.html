@@ -445,11 +445,12 @@
 
     .section-image-card:hover img,
     .hero-banner-image:hover img {
-      opacity: 0.98;
-      transform: scale(1.015);
+      opacity: 0.99;
+      transform: scale(1.018);
+      filter: brightness(1.01);
     }
 
-    /* High-Performance Micro-Interactions & Hardware-Accelerated Animations */
+    /* Universal Minimal & Premium Glowing Border Transition for All Boxes & Cards */
     .section-image-card,
     .hero-banner-image,
     .mentor-photo-wrap,
@@ -457,31 +458,70 @@
     .module-card,
     .review-card,
     .stat-box,
+    .number-box,
     .location-card,
-    .faq-item {
-      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
-      will-change: transform;
+    .faq-item,
+    .lead-form-card,
+    .mode-card,
+    .step-card,
+    .mentor-card,
+    .mode-select-label,
+    .section-badge,
+    .map-frame-wrap,
+    .nav-phone {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color 0.3s ease,
+                  box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.3s ease;
+      will-change: transform, border-color, box-shadow;
     }
 
+    /* Minimal & Crisp Emerald Border Glow on Touch / Hover (Triggers smoothly every time) */
     .section-image-card:hover,
     .hero-banner-image:hover,
+    .mentor-photo-wrap:hover,
     .feature-card:hover,
     .module-card:hover,
     .review-card:hover,
     .stat-box:hover,
-    .location-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 32px rgba(10, 37, 64, 0.09);
-      border-color: var(--navy-border);
+    .number-box:hover,
+    .location-card:hover,
+    .faq-item:hover,
+    .lead-form-card:hover,
+    .mode-card:hover,
+    .step-card:hover,
+    .mentor-card:hover,
+    .mode-select-label:hover,
+    .section-badge:hover,
+    .map-frame-wrap:hover,
+    .nav-phone:hover,
+    .section-image-card:active,
+    .hero-banner-image:active,
+    .mentor-photo-wrap:active,
+    .feature-card:active,
+    .module-card:active,
+    .review-card:active,
+    .stat-box:active,
+    .number-box:active,
+    .location-card:active,
+    .faq-item:active,
+    .lead-form-card:active,
+    .mode-card:active,
+    .step-card:active,
+    .mentor-card:active,
+    .touch-active {
+      transform: translateY(-5px);
+      border-color: #0D8253 !important;
+      box-shadow: 0 0 0 2px rgba(13, 130, 83, 0.25), 0 16px 36px rgba(10, 37, 64, 0.09) !important;
     }
 
-    /* Subtle Pulsing Animation for Key CTA Buttons */
+    /* Luxurious Slow Pulsing Animation for Primary CTAs */
     @keyframes cta-pulse-glow {
       0% {
-        box-shadow: 0 0 0 0 rgba(13, 130, 83, 0.4);
+        box-shadow: 0 0 0 0 rgba(13, 130, 83, 0.35);
       }
-      70% {
-        box-shadow: 0 0 0 10px rgba(13, 130, 83, 0);
+      50% {
+        box-shadow: 0 0 0 14px rgba(13, 130, 83, 0);
       }
       100% {
         box-shadow: 0 0 0 0 rgba(13, 130, 83, 0);
@@ -489,14 +529,14 @@
     }
 
     .pulse-cta {
-      animation: cta-pulse-glow 2.5s infinite;
+      animation: cta-pulse-glow 3.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     }
 
-    /* Zero-Lag Hardware-Accelerated Scroll Reveal */
+    /* Silky Smooth Hardware-Accelerated Scroll Reveal */
     .reveal {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(30px);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
       will-change: opacity, transform;
     }
 
@@ -504,6 +544,14 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Staggered Entrance Delays for Grid Elements */
+    .grid-stagger > *:nth-child(1).reveal { transition-delay: 0.05s; }
+    .grid-stagger > *:nth-child(2).reveal { transition-delay: 0.15s; }
+    .grid-stagger > *:nth-child(3).reveal { transition-delay: 0.25s; }
+    .grid-stagger > *:nth-child(4).reveal { transition-delay: 0.35s; }
+    .grid-stagger > *:nth-child(5).reveal { transition-delay: 0.45s; }
+    .grid-stagger > *:nth-child(6).reveal { transition-delay: 0.55s; }
 
     @media (prefers-reduced-motion: reduce) {
       .reveal {
@@ -1512,6 +1560,70 @@
       text-align: center;
     }
 
+    /* Popup Enquiry Modal Dialog */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(10, 37, 64, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 100005;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-card {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 440px;
+      padding: 2.25rem 2rem;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: translateY(24px) scale(0.95);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid var(--border-medium);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--bg-slate);
+      border: 1px solid var(--border-subtle);
+      width: 34px;
+      height: 34px;
+      font-size: 1.1rem;
+      color: var(--navy-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--navy-main);
+      color: #FFFFFF;
+      transform: rotate(90deg);
+    }
+
     /* Lightbox Modal & Image Zoom */
     .lightbox-modal {
       display: none;
@@ -1850,46 +1962,19 @@
               PDF.</p>
           </div>
 
-          <!-- TODO: Connect to Google Apps Script / Formspree -->
           <form id="enquiryForm" action="#" method="POST" novalidate>
             <div class="form-group">
               <label for="userName" class="form-label">Full Name *</label>
-              <input type="text" id="userName" name="name" class="form-input" placeholder="Enter your full name"
-                required>
+              <input type="text" id="userName" name="name" class="form-input" placeholder="Enter your full name" required>
             </div>
 
             <div class="form-group">
               <label for="userPhone" class="form-label">Phone Number * (10 Digits)</label>
               <input type="tel" id="userPhone" name="phone" class="form-input"
-                placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}"
-                required>
+                placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}" required>
             </div>
 
-            <div class="form-group">
-              <label for="userEmail" class="form-label">Email Address (Optional)</label>
-              <input type="email" id="userEmail" name="email" class="form-input" placeholder="Enter your email">
-            </div>
-
-            <div class="form-group">
-              <label for="userCity" class="form-label">City *</label>
-              <input type="text" id="userCity" name="city" class="form-input" value="Pune" required>
-            </div>
-
-            <div class="form-group">
-              <label class="form-label">Preferred Learning Mode *</label>
-              <div class="mode-select-row">
-                <label class="mode-select-label">
-                  <input type="radio" name="learningMode" value="Offline Weekend Classroom (Sinhgad Rd, Pune)" checked>
-                  <span>🏫 Offline Weekend Classroom (Pune)</span>
-                </label>
-                <label class="mode-select-label">
-                  <input type="radio" name="learningMode" value="Online Lectures (Watch Anytime)">
-                  <span>🎥 Online Lectures (Watch Anytime)</span>
-                </label>
-              </div>
-            </div>
-
-            <button type="submit" id="submitBtn" class="btn btn-green btn-full">
+            <button type="submit" id="submitBtn" class="btn btn-green btn-full pulse-cta" style="margin-top: 0.5rem;">
               Get Batch Details &amp; Syllabus PDF ↓
             </button>
 
@@ -2848,6 +2933,39 @@
     </div>
   </div>
 
+  <!-- Popup Modal for Quick Enquiry Form -->
+  <div id="enquiryModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Quick Course Enquiry Form">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close Form">✕</button>
+      <div class="form-header">
+        <h3 style="font-size: 1.35rem; color: var(--navy-main); margin-bottom: 0.25rem;">Enquire for Batch &amp; Get Syllabus</h3>
+        <p style="font-size: 0.875rem; color: var(--text-muted);">Fill your name and mobile number to receive upcoming batch schedules &amp; instant 4-page syllabus PDF.</p>
+      </div>
+
+      <form id="popupEnquiryForm" action="#" method="POST" novalidate>
+        <div class="form-group">
+          <label for="popupUserName" class="form-label">Full Name *</label>
+          <input type="text" id="popupUserName" name="name" class="form-input" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="popupUserPhone" class="form-label">Phone Number * (10 Digits)</label>
+          <input type="tel" id="popupUserPhone" name="phone" class="form-input" placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}" required>
+        </div>
+
+        <button type="submit" id="popupSubmitBtn" class="btn btn-green btn-full pulse-cta" style="margin-top: 0.5rem;">
+          Get Batch Details &amp; Syllabus PDF ↓
+        </button>
+
+        <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 0.65rem;">
+          🔒 Your details are 100% confidential. Used only for course enquiry.
+        </p>
+
+        <div id="popupFormSuccess" class="form-success-msg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+
   <!-- Floating WhatsApp -->
   <a href="https://wa.me/919021336336?text=Hi%2C%20I%20am%20interested%20in%20learning%20share%20market%20courses%20at%20Chaitanya%20Share%20Market%20Classes%20Pune."
     class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
@@ -2883,7 +3001,7 @@
         }, { passive: true });
       }
 
-      // Zero-Lag IntersectionObserver Scroll Reveal
+      // Silky Smooth IntersectionObserver Scroll Reveal
       if ('IntersectionObserver' in window) {
         const revealObserver = new IntersectionObserver(function (entries) {
           entries.forEach(function (entry) {
@@ -2892,7 +3010,13 @@
               revealObserver.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+        // Add stagger class to parent grid containers
+        const gridContainers = document.querySelectorAll('.two-col-grid, .features-grid, .modules-grid, .reviews-grid, .numbers-grid, .steps-grid, .modes-grid');
+        gridContainers.forEach(function (container) {
+          container.classList.add('grid-stagger');
+        });
 
         const revealElements = document.querySelectorAll(
           '.section-header, .feature-card, .module-card, .review-card, .stat-box, .location-card, .faq-item, .section-image-card, .mentor-photo-wrap, .lead-form-card'
@@ -2900,6 +3024,16 @@
         revealElements.forEach(function (el) {
           el.classList.add('reveal');
           revealObserver.observe(el);
+
+          // Touch Feedback for Mobile & Tablet Devices
+          el.addEventListener('touchstart', function () {
+            el.classList.add('touch-active');
+          }, { passive: true });
+          el.addEventListener('touchend', function () {
+            setTimeout(function () {
+              el.classList.remove('touch-active');
+            }, 1200);
+          }, { passive: true });
         });
       }
 
@@ -3016,118 +3150,160 @@
         }
       });
 
-      // Form Handler with Google Sheet & WhatsApp Integration
-      const enquiryForm = document.getElementById('enquiryForm');
-      const formSuccess = document.getElementById('formSuccess');
-      const submitBtn = document.getElementById('submitBtn');
+      // Modal Popup Controls & Form Triggering
+      const enquiryModal = document.getElementById('enquiryModal');
+      const modalCloseBtn = document.getElementById('modalCloseBtn');
 
+      function openEnquiryModal() {
+        if (!enquiryModal) return;
+        enquiryModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeEnquiryModal() {
+        if (!enquiryModal) return;
+        enquiryModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeEnquiryModal);
+      }
+
+      if (enquiryModal) {
+        enquiryModal.addEventListener('click', function (e) {
+          if (e.target === enquiryModal) closeEnquiryModal();
+        });
+      }
+
+      // Attach open modal trigger to all CTA Enquiry Buttons
+      const ctaButtons = document.querySelectorAll('.nav-cta-btn, .mobile-enquire-btn, a[href="#lead-form"]');
+      ctaButtons.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          openEnquiryModal();
+        });
+      });
+
+      // Form Handler with Google Sheet & WhatsApp Integration
       const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwuKYXZk7Ym4guCV_1wvfuLaHz8Tnvst3cwHtFkN5NkjkDxrE35yU6EzRa8yF46GdkShw/exec';
 
-      // Real-time 10-digit phone number restriction & paste sanitizer
-      const userPhoneInput = document.getElementById('userPhone');
-      if (userPhoneInput) {
-        userPhoneInput.addEventListener('input', function () {
-          let val = this.value.replace(/\D/g, ''); // Allow only numbers
-          // If pasted with +91 or leading 0, clean it automatically
+      // Function to sanitize 10-digit phone number
+      function setupPhoneInput(inputEl) {
+        if (!inputEl) return;
+        inputEl.addEventListener('input', function () {
+          let val = this.value.replace(/\D/g, '');
           if (val.length > 10) {
             if (val.startsWith('91')) val = val.substring(2);
             else if (val.startsWith('0')) val = val.substring(1);
           }
-          this.value = val.slice(0, 10); // Strictly cap at 10 digits
+          this.value = val.slice(0, 10);
         });
       }
 
+      setupPhoneInput(document.getElementById('userPhone'));
+      setupPhoneInput(document.getElementById('popupUserPhone'));
+
+      // Unified Lead Submission Handler (Name & Phone Number Only)
+      function handleLeadSubmit(name, phone, formEl, submitBtnEl, successContainerEl) {
+        if (!name) {
+          alert('Please enter your full name.');
+          return;
+        }
+
+        if (!/^[6-9][0-9]{9}$/.test(phone)) {
+          alert('Please enter a valid 10-digit Indian mobile number (e.g., 9876543210).');
+          return;
+        }
+
+        if (submitBtnEl) {
+          submitBtnEl.disabled = true;
+          submitBtnEl.innerText = 'Submitting...';
+        }
+
+        // 1. Send Name, Phone & target email (csclasses9@gmail.com) to Google Sheet Apps Script
+        if (GOOGLE_SHEET_URL && GOOGLE_SHEET_URL.trim() !== '') {
+          const params = new URLSearchParams();
+          params.append('Timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
+          params.append('Name', name);
+          params.append('Phone', phone);
+          params.append('Email', 'csclasses9@gmail.com');
+          params.append('City', 'Pune');
+          params.append('Mode', 'Share Market Master Course Enquiry');
+
+          const targetUrl = GOOGLE_SHEET_URL + '?' + params.toString();
+          if (navigator.sendBeacon) {
+            navigator.sendBeacon(targetUrl);
+          } else {
+            fetch(targetUrl, { method: 'GET', mode: 'no-cors' });
+          }
+        }
+
+        // 2. Prepare pre-formatted WhatsApp link
+        const encodedText = `Hi, I'm ${encodeURIComponent(name)}. I submitted an enquiry for the Share Market Course.%0APhone: ${encodeURIComponent(phone)}`;
+        const whatsappUrl = `https://wa.me/919021336336?text=${encodedText}`;
+
+        // 3. Display confirmation box with PDF download & WhatsApp button
+        if (successContainerEl) {
+          successContainerEl.innerHTML = `
+            <div style="background: #E6F5EE; border: 1px solid #A7E0C7; padding: 1.25rem; margin-top: 1rem; text-align: left;">
+              <h4 style="color: #065F46; font-size: 1.05rem; margin-bottom: 0.4rem;">🎉 Thank you, ${name}! Your enquiry has been received.</h4>
+              <p style="font-size: 0.875rem; color: #1E293B; margin-bottom: 0.85rem; line-height: 1.5;">
+                Our admissions team will contact you shortly on <strong>${phone}</strong> with upcoming batch schedules.
+              </p>
+              <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+                <a href="chaitanya_share_market_syllabus.pdf" download="Chaitanya_Share_Market_Syllabus.pdf" 
+                   class="btn btn-green" style="font-size: 0.85rem; padding: 0.6rem 1rem; text-align: center; text-decoration: none;">
+                  📥 Download 4-Page Syllabus PDF ↓
+                </a>
+                <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" 
+                   class="btn" style="background-color: #25D366; color: #FFFFFF; font-size: 0.85rem; padding: 0.6rem 1rem; text-align: center; text-decoration: none; font-weight: 700;">
+                  💬 Chat Directly on WhatsApp ↗
+                </a>
+              </div>
+            </div>
+          `;
+          successContainerEl.style.display = 'block';
+        }
+
+        // 4. Trigger automatic download of official syllabus PDF
+        const pdfLink = document.createElement('a');
+        pdfLink.href = 'chaitanya_share_market_syllabus.pdf';
+        pdfLink.download = 'Chaitanya_Share_Market_Syllabus.pdf';
+        document.body.appendChild(pdfLink);
+        pdfLink.click();
+        document.body.removeChild(pdfLink);
+
+        // 5. Reset form
+        if (formEl) formEl.reset();
+
+        setTimeout(function () {
+          if (submitBtnEl) {
+            submitBtnEl.disabled = false;
+            submitBtnEl.innerText = 'Get Batch Details & Syllabus PDF ↓';
+          }
+        }, 3000);
+      }
+
+      // Hero Form Listener
+      const enquiryForm = document.getElementById('enquiryForm');
       if (enquiryForm) {
         enquiryForm.addEventListener('submit', function (e) {
           e.preventDefault();
-
           const name = document.getElementById('userName').value.trim();
-          const phone = userPhoneInput ? userPhoneInput.value.trim() : '';
-          const email = document.getElementById('userEmail') ? document.getElementById('userEmail').value.trim() : '';
-          const city = document.getElementById('userCity') ? document.getElementById('userCity').value.trim() : 'Pune';
-          const modeEl = document.querySelector('input[name="learningMode"]:checked');
-          const mode = modeEl ? modeEl.value : 'Offline Weekend Classroom (Sinhgad Rd, Pune)';
+          const phone = document.getElementById('userPhone') ? document.getElementById('userPhone').value.trim() : '';
+          handleLeadSubmit(name, phone, enquiryForm, document.getElementById('submitBtn'), document.getElementById('formSuccess'));
+        });
+      }
 
-          if (!name) {
-            alert('Please enter your full name.');
-            document.getElementById('userName').focus();
-            return;
-          }
-
-          if (!/^[6-9][0-9]{9}$/.test(phone)) {
-            alert('Please enter a valid 10-digit Indian mobile number (e.g., 9876543210).');
-            if (userPhoneInput) userPhoneInput.focus();
-            return;
-          }
-
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Submitting...';
-          }
-
-          // 1. Send data to Google Sheet Apps Script Web App (SendBeacon prevents browser cancels)
-          if (GOOGLE_SHEET_URL && GOOGLE_SHEET_URL.trim() !== '') {
-            const params = new URLSearchParams();
-            params.append('Timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
-            params.append('Name', name);
-            params.append('Phone', phone);
-            params.append('Email', email);
-            params.append('City', city);
-            params.append('Mode', mode);
-
-            const targetUrl = GOOGLE_SHEET_URL + '?' + params.toString();
-            if (navigator.sendBeacon) {
-              navigator.sendBeacon(targetUrl);
-            } else {
-              fetch(targetUrl, { method: 'GET', mode: 'no-cors' });
-            }
-          }
-
-          // 2. Prepare pre-formatted WhatsApp link
-          const encodedText = `Hi, I'm ${encodeURIComponent(name)}. I submitted an enquiry for the Share Market Course (${encodeURIComponent(mode)}).%0APhone: ${encodeURIComponent(phone)}%0ACity: ${encodeURIComponent(city)}`;
-          const whatsappUrl = `https://wa.me/919021336336?text=${encodedText}`;
-
-          // 3. Display professional confirmation box with PDF download & WhatsApp buttons
-          if (formSuccess) {
-            formSuccess.innerHTML = `
-              <div style="background: #E6F5EE; border: 1px solid #A7E0C7; padding: 1.25rem; margin-top: 1rem;">
-                <h4 style="color: #065F46; font-size: 1.05rem; margin-bottom: 0.4rem;">🎉 Thank you, ${name}! Your enquiry has been received.</h4>
-                <p style="font-size: 0.875rem; color: #1E293B; margin-bottom: 0.85rem; line-height: 1.5;">
-                  Our admissions team will contact you shortly on <strong>${phone}</strong> with upcoming batch schedules and fee details.
-                </p>
-                <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-                  <a href="chaitanya_share_market_syllabus.pdf" download="Chaitanya_Share_Market_Syllabus.pdf" 
-                     class="btn btn-green" style="font-size: 0.85rem; padding: 0.6rem 1rem; text-align: center; text-decoration: none;">
-                    📥 Download 4-Page Syllabus PDF ↓
-                  </a>
-                  <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" 
-                     class="btn" style="background-color: #25D366; color: #FFFFFF; font-size: 0.85rem; padding: 0.6rem 1rem; text-align: center; text-decoration: none; font-weight: 700;">
-                    💬 Chat Directly on WhatsApp ↗
-                  </a>
-                </div>
-              </div>
-            `;
-            formSuccess.style.display = 'block';
-          }
-
-          // 4. Trigger automatic download of official syllabus PDF
-          const pdfLink = document.createElement('a');
-          pdfLink.href = 'chaitanya_share_market_syllabus.pdf';
-          pdfLink.download = 'Chaitanya_Share_Market_Syllabus.pdf';
-          document.body.appendChild(pdfLink);
-          pdfLink.click();
-          document.body.removeChild(pdfLink);
-
-          // 5. Reset form fields
-          enquiryForm.reset();
-          if (document.getElementById('userCity')) document.getElementById('userCity').value = 'Pune';
-
-          setTimeout(function () {
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.innerText = 'Get Batch Details & Syllabus PDF ↓';
-            }
-          }, 3000);
+      // Popup Modal Form Listener
+      const popupEnquiryForm = document.getElementById('popupEnquiryForm');
+      if (popupEnquiryForm) {
+        popupEnquiryForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const name = document.getElementById('popupUserName').value.trim();
+          const phone = document.getElementById('popupUserPhone') ? document.getElementById('popupUserPhone').value.trim() : '';
+          handleLeadSubmit(name, phone, popupEnquiryForm, document.getElementById('popupSubmitBtn'), document.getElementById('popupFormSuccess'));
         });
       }
     });
