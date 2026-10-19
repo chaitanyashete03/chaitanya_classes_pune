@@ -412,7 +412,39 @@
       width: 100%;
     }
 
-    /* Images Styling & Zoom */
+    /* Premium Subtle Breathing Elevation Float for Images */
+    @keyframes image-ambient-float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    /* Silky Light Pass / Glass Sheen Effect across Cards */
+    @keyframes image-glass-sheen {
+      0% {
+        transform: translateX(-120%) rotate(25deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.55;
+      }
+      45% {
+        transform: translateX(180%) rotate(25deg);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(180%) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    /* 1. Fully Visible & Premium Motion Image Cards */
     .section-image-card,
     .hero-banner-image,
     .mentor-photo-wrap {
@@ -424,6 +456,61 @@
       box-shadow: var(--shadow-card);
       background: #FFFFFF;
       width: 100%;
+      /* 100% Always visible - no hiding or clipping */
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.4s ease,
+                  border-color 0.4s ease;
+      will-change: transform, box-shadow;
+      animation: image-ambient-float 6s ease-in-out infinite;
+    }
+
+    /* Subtle post-reveal ambient floating animation */
+    @keyframes image-ambient-float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    /* Smooth light sheen sweep across image cards */
+    @keyframes image-glass-sheen {
+      0%, 35% {
+        transform: translateX(-160%) rotate(25deg);
+        opacity: 0;
+      }
+      45% {
+        opacity: 0.55;
+      }
+      60%, 100% {
+        transform: translateX(200%) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    /* Silky Light Pass / Diagonal Sheen across image cards */
+    .section-image-card::after,
+    .hero-banner-image::after,
+    .mentor-photo-wrap::after {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -60%;
+      width: 220%;
+      height: 220%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.35) 48%,
+        rgba(16, 185, 129, 0.22) 52%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      pointer-events: none;
+      animation: image-glass-sheen 7s ease-in-out infinite;
+      z-index: 2;
     }
 
     .section-image-card picture,
@@ -440,14 +527,31 @@
       display: block;
       object-fit: contain;
       border-radius: 0;
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      transform: scale(1);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+      will-change: transform, filter;
+      transform-origin: center center;
     }
 
+    /* Hover Micro-Lift & Contrast Enhancement */
     .section-image-card:hover img,
-    .hero-banner-image:hover img {
-      opacity: 0.99;
-      transform: scale(1.018);
-      filter: brightness(1.01);
+    .hero-banner-image:hover img,
+    .mentor-photo-wrap:hover img {
+      transform: scale(1.025);
+      filter: brightness(1.02) contrast(1.02);
+    }
+
+    /* Pause sheen and float on hover for clean scrutiny */
+    .section-image-card:hover,
+    .hero-banner-image:hover,
+    .mentor-photo-wrap:hover {
+      animation-play-state: paused;
+    }
+
+    .section-image-card:hover::after,
+    .hero-banner-image:hover::after,
+    .mentor-photo-wrap:hover::after {
+      animation-play-state: paused;
     }
 
     /* Universal Minimal & Premium Glowing Border Transition for All Boxes & Cards */
@@ -559,6 +663,14 @@
         transform: none !important;
         transition: none !important;
       }
+      .section-image-card,
+      .hero-banner-image,
+      .mentor-photo-wrap {
+        clip-path: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+      }
       .pulse-cta {
         animation: none !important;
       }
@@ -587,6 +699,381 @@
       height: auto;
       object-fit: contain;
       background: #FFFFFF;
+    }
+
+    /* 1. Live Stock Market Ticker Marquee */
+    .market-ticker-wrap {
+      background: #061524;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 0.45rem 0;
+      position: relative;
+      z-index: 1001;
+    }
+
+    .market-ticker-track {
+      display: inline-flex;
+      align-items: center;
+      gap: 2.5rem;
+      animation: ticker-slide 28s linear infinite;
+      will-change: transform;
+    }
+
+    .market-ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes ticker-slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: #E2E8F0;
+    }
+
+    .ticker-tag-up {
+      color: #10B981;
+      background: rgba(16, 185, 129, 0.14);
+      padding: 0.15rem 0.45rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      border-radius: 2px;
+    }
+
+    /* 2. Shimmering Corporate Navy & Emerald Metallic Heading Text */
+    .shimmer-text {
+      background: linear-gradient(
+        105deg,
+        #0A2540 0%,
+        #0D8253 28%,
+        #10B981 50%,
+        #0D8253 72%,
+        #0A2540 100%
+      );
+      background-size: 200% auto;
+      color: #0A2540;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: text-shimmer-sweep 4s linear infinite;
+      display: inline;
+    }
+
+    @keyframes text-shimmer-sweep {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* Premium Section Header Formatting & Text Reveal */
+    .section-header {
+      text-align: center;
+      max-width: 960px;
+      margin: 0 auto 2.75rem auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-header .section-badge {
+      margin-bottom: 0.95rem;
+      align-self: center;
+    }
+
+    /* 1. Physical Curtain Mask Container for Headings */
+    .section-header h2,
+    .hero-content-header h1 {
+      position: relative;
+      display: inline-block;
+      margin: 0 auto 0.85rem auto;
+      text-align: center;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.25;
+      overflow: hidden; /* Clips the text during the slide-up curtain entrance */
+      padding: 4px 8px 8px 8px;
+    }
+
+    .section-header h2 {
+      font-size: 2.15rem;
+    }
+
+    .hero-content-header h1 {
+      font-size: 2.35rem;
+      margin-top: 0.5rem;
+    }
+
+    /* The actual text physically moves up from below the baseline */
+    .kinetic-word {
+      display: inline-block;
+      transform: translateY(120%);
+      opacity: 0;
+      transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+      /* Premium Pure Emerald / Navy High-Contrast Gradient - No Red Tones */
+      background: linear-gradient(135deg, #0A2540 0%, #0D8253 38%, #10B981 62%, #0A2540 100%);
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding-bottom: 2px;
+    }
+
+    /* Triggered automatically when section scrolls into viewport */
+    .section-header.is-visible .kinetic-word,
+    .hero-content-header.is-visible .kinetic-word {
+      transform: translateY(0%);
+      opacity: 1;
+      animation: text-shimmer-sweep 4.5s linear infinite;
+    }
+
+    /* Staggered delay between words for wave sensation */
+    .section-header.is-visible .kinetic-word:nth-child(1),
+    .hero-content-header.is-visible .kinetic-word:nth-child(1) { transition-delay: 0.05s; }
+    .section-header.is-visible .kinetic-word:nth-child(2),
+    .hero-content-header.is-visible .kinetic-word:nth-child(2) { transition-delay: 0.12s; }
+    .section-header.is-visible .kinetic-word:nth-child(3),
+    .hero-content-header.is-visible .kinetic-word:nth-child(3) { transition-delay: 0.19s; }
+    .section-header.is-visible .kinetic-word:nth-child(4),
+    .hero-content-header.is-visible .kinetic-word:nth-child(4) { transition-delay: 0.26s; }
+    .section-header.is-visible .kinetic-word:nth-child(5),
+    .hero-content-header.is-visible .kinetic-word:nth-child(5) { transition-delay: 0.33s; }
+    .section-header.is-visible .kinetic-word:nth-child(6),
+    .hero-content-header.is-visible .kinetic-word:nth-child(6) { transition-delay: 0.40s; }
+    .section-header.is-visible .kinetic-word:nth-child(7),
+    .hero-content-header.is-visible .kinetic-word:nth-child(7) { transition-delay: 0.47s; }
+
+    /* Continuous gentle floating motion directly on the text characters after settling */
+    .section-header.is-visible h2,
+    .hero-content-header.is-visible h1 {
+      animation: text-subtle-drift 4.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes text-subtle-drift {
+      0% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(-3px);
+      }
+    }
+
+    /* Centered Glowing Accent Line with Expanding Sweep */
+    .section-header h2::after,
+    .hero-content-header h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translateX(-50%) scaleX(0);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #0D8253, #10B981, #0D8253);
+      background-size: 200% auto;
+      border-radius: 3px;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), width 0.45s ease, box-shadow 0.45s ease;
+      animation: text-shimmer-sweep 3.5s linear infinite;
+      transform-origin: center;
+    }
+
+    .section-header.is-visible h2::after,
+    .hero-content-header.is-visible h1::after {
+      transform: translateX(-50%) scaleX(1);
+    }
+
+    .section-header:hover h2::after,
+    .hero-content-header:hover h1::after {
+      width: 150px;
+      box-shadow: 0 2px 12px rgba(13, 130, 83, 0.45);
+    }
+
+    .section-header p {
+      margin-top: 0.85rem;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #4A5568;
+      text-align: center;
+      text-wrap: balance;
+      letter-spacing: -0.01em;
+    }
+
+    .section-header p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* Premium Interactive Live Typewriter Badge */
+    .hero-typewriter-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #FFFFFF;
+      border: 1px solid rgba(13, 130, 83, 0.28);
+      border-radius: 999px;
+      padding: 0.4rem 1.15rem;
+      margin-top: 0.85rem;
+      box-shadow: 0 4px 18px rgba(10, 37, 64, 0.06), 0 0 0 1px rgba(16, 185, 129, 0.12);
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--navy-main);
+      transition: all 0.3s ease;
+    }
+
+    .hero-typewriter-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(13, 130, 83, 0.16);
+      border-color: #0D8253;
+    }
+
+    .typewriter-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10B981;
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
+      animation: live-pulse-dot 1.8s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes live-pulse-dot {
+      0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+        transform: scale(0.95);
+      }
+      70% {
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+        transform: scale(1.15);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+        transform: scale(0.95);
+      }
+    }
+
+    .typewriter-label {
+      color: var(--text-muted);
+      font-weight: 500;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .typewriter-dynamic-text {
+      color: var(--green-growth);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .typewriter-cursor {
+      color: var(--green-growth);
+      font-weight: 400;
+      animation: cursor-blink 0.9s infinite;
+      margin-left: -2px;
+    }
+
+    @keyframes cursor-blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Premium Paragraph Reading Flow - Silky Opacity Elevation */
+    .hero-intro-text p,
+    .prose-box p {
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-intro-text p:hover,
+    .prose-box p:hover {
+      color: var(--navy-main);
+    }
+
+    /* Premium Motion for Important Texts */
+    .motion-heading {
+      position: relative;
+      display: inline-block;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .motion-heading:hover {
+      transform: translateY(-2px);
+    }
+
+    .section-badge {
+      animation: badge-subtle-glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes badge-subtle-glow {
+      0% {
+        box-shadow: 0 0 0 0 rgba(13, 130, 83, 0.2);
+        transform: translateY(0);
+      }
+      100% {
+        box-shadow: 0 4px 14px rgba(13, 130, 83, 0.25);
+        transform: translateY(-1px);
+      }
+    }
+
+
+    .hero-banner-image:hover::after,
+    .section-image-card:hover::after {
+      animation-play-state: paused;
+    }
+
+    /* 3. Aurora Ambient Rotating Glow Effect */
+    .aurora-glow-wrap {
+      position: relative;
+    }
+
+    .aurora-glow-wrap::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      background: linear-gradient(135deg, rgba(13, 130, 83, 0.35), rgba(10, 37, 64, 0.2), rgba(16, 185, 129, 0.35), rgba(180, 83, 9, 0.25));
+      background-size: 300% 300%;
+      z-index: -1;
+      filter: blur(14px);
+      animation: aurora-shift 8s ease infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes aurora-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 4. Smooth Side Slide-In Reveals */
+    .reveal-left {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-right {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    /* 5. 3D Tilt Card Perspective */
+    .tilt-card {
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      transition: transform 0.15s ease-out, box-shadow 0.25s ease;
+      will-change: transform;
     }
 
     /* Top Trust Bar */
@@ -721,25 +1208,33 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 3rem;
-      align-items: flex-start;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: stretch;
     }
 
-    .hero-content {
+    .hero-image-col {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
+      justify-content: center;
+      width: 100%;
     }
 
     .hero-content-header {
-      margin-bottom: 0.85rem;
+      margin-bottom: 1.75rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero-content h1 {
+    .hero-content-header h1 {
       color: var(--navy-main);
-      margin-top: 0.25rem;
+      margin-top: 0.5rem;
       line-height: 1.18;
+      font-size: 2.35rem;
+      text-align: center;
     }
 
     .hero-banner-image {
@@ -749,48 +1244,73 @@
       border: 1px solid var(--border-subtle);
       box-shadow: var(--shadow-sm);
       background: #FFFFFF;
-      max-width: 555px;
       width: 100%;
-      aspect-ratio: 1 / 1;
+      height: 100%;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-banner-image img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       display: block;
     }
 
-    /* Hero Extended Bottom Intro */
+    /* Hero Extended Bottom Intro - Executive Editorial Styling */
     .hero-bottom-content {
-      margin-top: 2.75rem;
-      padding-top: 2.25rem;
-      border-top: 1px solid var(--border-subtle);
+      margin-top: 3rem;
+      padding: 2.25rem 2.5rem;
+      background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+      border: 1px solid rgba(10, 37, 64, 0.08);
+      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(10, 37, 64, 0.04);
+      position: relative;
+    }
+
+    .hero-bottom-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 2.5rem;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--green-growth), var(--emerald));
+      border-radius: 2px;
     }
 
     .hero-intro-lead {
-      font-size: 1.1rem;
-      color: var(--navy-main);
+      font-size: 1.18rem;
+      color: var(--navy-dark);
       font-weight: 600;
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
+      line-height: 1.8;
+      margin-bottom: 1.35rem;
+      width: 100%;
+      letter-spacing: -0.012em;
     }
 
+    .hero-intro-lead strong {
+      color: var(--green-growth);
+      font-weight: 700;
+    }
+
+    /* 2 paragraphs below the image and form in full length stacked one below the other */
     .hero-intro-columns {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.15rem;
+      width: 100%;
     }
 
     .hero-intro-text p {
-      font-size: 1rem;
-      color: var(--text-body);
-      line-height: 1.75;
-      margin-bottom: 1rem;
-    }
-
-    .hero-intro-text p:last-child {
+      font-size: 1.05rem;
+      color: #334155;
+      line-height: 1.85;
       margin-bottom: 0;
+      width: 100%;
+      letter-spacing: -0.005em;
     }
 
     /* Lead Form Card */
@@ -1166,10 +1686,36 @@
       color: var(--navy-main);
     }
 
+    /* Methodology Narrative Box & 4-Stage Cards */
+    .methodology-narrative-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-left: 4px solid var(--green-growth);
+      padding: 2.25rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.15rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .methodology-narrative-box p {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #334155;
+      margin-bottom: 0;
+      letter-spacing: -0.005em;
+    }
+
+    .methodology-steps-banner {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
     /* Methodology 4 Cards */
     .steps-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.25rem;
     }
 
@@ -1177,14 +1723,21 @@
       background: #FFFFFF;
       border: 1px solid var(--border-subtle);
       border-radius: 0;
-      padding: 1.35rem 1.15rem;
+      padding: 1.5rem 1.25rem;
       text-align: center;
       box-shadow: var(--shadow-sm);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(13, 130, 83, 0.45);
+      box-shadow: 0 10px 24px rgba(10, 37, 64, 0.08);
     }
 
     .step-badge {
-      width: 34px;
-      height: 34px;
+      width: 38px;
+      height: 38px;
       background: var(--navy-main);
       color: #FFFFFF;
       font-weight: 700;
@@ -1193,7 +1746,12 @@
       align-items: center;
       justify-content: center;
       margin: 0 auto 0.75rem auto;
-      font-size: 0.95rem;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .step-card:hover .step-badge {
+      background: var(--green-growth);
     }
 
     /* Mentor Card */
@@ -1716,21 +2274,24 @@
 
       .hero-banner-image {
         max-width: 100%;
-        margin-top: 1rem;
+        margin-top: 0;
+        height: auto;
       }
 
       .hero-banner-image img {
         width: 100%;
         height: auto;
+        object-fit: contain;
       }
 
       .hero-bottom-content {
         margin-top: 2rem;
-        padding-top: 1.5rem;
+        padding: 1.5rem 1.25rem;
       }
 
       .hero-intro-columns {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 1rem;
       }
 
@@ -1765,8 +2326,13 @@
         grid-template-columns: 1fr;
       }
 
+      .methodology-narrative-box {
+        padding: 1.5rem 1.25rem;
+      }
+
       .steps-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
       }
 
       .reviews-grid {
@@ -1825,6 +2391,11 @@
         right: 15px;
         width: 48px;
         height: 48px;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
       }
 
       .numbers-grid {
@@ -1903,6 +2474,27 @@
       &nbsp;·&nbsp; Exclusive Weekend Batches (Sat & Sun)</strong>
   </aside>
 
+  <!-- Live Market Ticker Marquee -->
+  <div class="market-ticker-wrap" aria-hidden="true">
+    <div class="market-ticker-track">
+      <div class="ticker-item"><span>NIFTY 50</span> <span class="ticker-tag-up">▲ 24,850.30 (+0.82%)</span></div>
+      <div class="ticker-item"><span>BANK NIFTY</span> <span class="ticker-tag-up">▲ 51,920.45 (+1.14%)</span></div>
+      <div class="ticker-item"><span>SENSEX</span> <span class="ticker-tag-up">▲ 81,420.10 (+0.76%)</span></div>
+      <div class="ticker-item"><span>FINNIFTY</span> <span class="ticker-tag-up">▲ 23,610.80 (+0.95%)</span></div>
+      <div class="ticker-item"><span>MIDCAP 100</span> <span class="ticker-tag-up">▲ 58,340.20 (+1.32%)</span></div>
+      <div class="ticker-item"><span>CRUDE OIL</span> <span class="ticker-tag-up">▲ 6,240.00 (+0.64%)</span></div>
+      <div class="ticker-item"><span>GOLD MINI</span> <span class="ticker-tag-up">▲ 76,450.00 (+0.48%)</span></div>
+      <!-- Duplicate track for seamless infinite marquee loop -->
+      <div class="ticker-item"><span>NIFTY 50</span> <span class="ticker-tag-up">▲ 24,850.30 (+0.82%)</span></div>
+      <div class="ticker-item"><span>BANK NIFTY</span> <span class="ticker-tag-up">▲ 51,920.45 (+1.14%)</span></div>
+      <div class="ticker-item"><span>SENSEX</span> <span class="ticker-tag-up">▲ 81,420.10 (+0.76%)</span></div>
+      <div class="ticker-item"><span>FINNIFTY</span> <span class="ticker-tag-up">▲ 23,610.80 (+0.95%)</span></div>
+      <div class="ticker-item"><span>MIDCAP 100</span> <span class="ticker-tag-up">▲ 58,340.20 (+1.32%)</span></div>
+      <div class="ticker-item"><span>CRUDE OIL</span> <span class="ticker-tag-up">▲ 6,240.00 (+0.64%)</span></div>
+      <div class="ticker-item"><span>GOLD MINI</span> <span class="ticker-tag-up">▲ 76,450.00 (+0.48%)</span></div>
+    </div>
+  </div>
+
   <!-- Navigation -->
   <header class="sticky-nav">
     <div class="container nav-container">
@@ -1941,21 +2533,29 @@
         </div>
       </div>
 
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="hero-content-header">
-            <span class="section-badge">⭐ Direct 1-on-1 Founder Mentorship · Training Since 2008</span>
-            <h1>Best Share Market Classes in Pune</h1>
-          </div>
+      <!-- Section Heading Above Grid (Centered in the middle, above Image & Form Card) -->
+      <div class="container hero-content-header" style="margin-bottom: 1.75rem; text-align: center;">
+        <span class="section-badge">⭐ Direct 1-on-1 Founder Mentorship · Training Since 2008</span>
+        <h1 style="margin-top: 0.5rem; text-align: center;"><span class="shimmer-text">Best Share Market Classes in Pune</span></h1>
+        
+        <!-- Premium Live Typewriter Interactive Badge -->
+        <div class="hero-typewriter-badge" aria-label="Course Focus Highlights">
+          <span class="typewriter-live-dot" aria-hidden="true"></span>
+          <span class="typewriter-label">Master:</span>
+          <span id="heroTypewriterText" class="typewriter-dynamic-text">Price Action Strategy</span><span class="typewriter-cursor">|</span>
+        </div>
+      </div>
 
-          <div class="hero-banner-image">
+      <div class="container hero-grid">
+        <div class="hero-image-col reveal-left">
+          <div class="hero-banner-image tilt-card">
             <img src="Best_Share_ Market_Classes_in_Pune.png"
               alt="Best Share Market Classes in Pune - Chaitanya Share Market Classes" loading="lazy">
           </div>
         </div>
 
-        <!-- Form Card -->
-        <div class="lead-form-card" id="lead-form">
+        <!-- Form Card with Aurora Glow & 3D Tilt -->
+        <div class="lead-form-card reveal-right aurora-glow-wrap tilt-card" id="lead-form">
           <div class="form-header">
             <h3>Enquire for Batch &amp; Get Syllabus</h3>
             <p>Fill the form to receive upcoming batch schedule &amp; get instant access to the official 4-page syllabus
@@ -1987,7 +2587,7 @@
         </div>
       </div>
 
-      <!-- Extended Content Below Form Card Grid -->
+      <!-- Extended Content Below Form Card Grid (Full-length paragraphs stacked one below other) -->
       <div class="container hero-bottom-content">
         <p class="hero-intro-lead">If you are searching for Share Market Classes in Pune to learn the stock market
           through structured and practical training, Chaitanya Share Market Classes provides a complete learning
@@ -2396,20 +2996,28 @@
           <h2>Our Unique Learning Methodology</h2>
           <p style="font-weight: 600; color: var(--navy-main); margin-bottom: 0.5rem;">Designed to Help You Learn,
             Practice and Succeed.</p>
-          <p>Learning the stock market is not about memorising concepts—it's about understanding how markets work and
-            applying that knowledge confidently.</p>
-          <p>At Chaitanya Share Market Classes, our teaching methodology combines structured classroom learning with
-            practical market exposure, helping students build strong concepts from the basics to advanced trading
-            techniques.</p>
-          <p>Every session is designed to make learning simple, interactive and easy to understand for beginners as well
-            as experienced learners.</p>
         </div>
 
-        <div class="two-col-grid">
-          <div class="section-image-card">
+        <!-- 2-Column Overview: Visual Methodology Graphic + Rich Editorial Explanation -->
+        <div class="two-col-grid" style="align-items: stretch; margin-bottom: 2.5rem;">
+          <div class="section-image-card" style="height: 100%; display: flex; align-items: center; justify-content: center;">
             <img src="Our Unique Learning Methodology.png" alt="Our Unique Learning Methodology" loading="lazy">
           </div>
 
+          <!-- Structured Narrative Box: perfectly balances with the image without empty void -->
+          <div class="methodology-narrative-box">
+            <p>Learning the stock market is not about memorising concepts—it's about understanding how markets work and
+              applying that knowledge confidently.</p>
+            <p>At Chaitanya Share Market Classes, our teaching methodology combines structured classroom learning with
+              practical market exposure, helping students build strong concepts from the basics to advanced trading
+              techniques.</p>
+            <p>Every session is designed to make learning simple, interactive and easy to understand for beginners as well
+              as experienced learners.</p>
+          </div>
+        </div>
+
+        <!-- 4-Stage Action Cards Grid -->
+        <div class="methodology-steps-banner">
           <div class="steps-grid">
             <div class="step-card">
               <div class="step-badge">1</div>
@@ -2600,28 +3208,28 @@
         <div class="two-col-grid align-start">
           <div>
             <div class="numbers-grid">
-              <div class="number-box">
-                <div class="number-val">20,000+</div>
+              <div class="number-box tilt-card">
+                <div class="number-val" data-counter="20000" data-suffix="+">0</div>
                 <div class="number-label">Students Trained</div>
               </div>
-              <div class="number-box">
-                <div class="number-val">3,000+</div>
+              <div class="number-box tilt-card">
+                <div class="number-val" data-counter="3000" data-suffix="+">0</div>
                 <div class="number-label">Google Reviews (4.9★)</div>
               </div>
-              <div class="number-box">
-                <div class="number-val">50+</div>
+              <div class="number-box tilt-card">
+                <div class="number-val" data-counter="50" data-suffix="+">0</div>
                 <div class="number-label">Recorded Video Lectures</div>
               </div>
-              <div class="number-box">
-                <div class="number-val">17+</div>
+              <div class="number-box tilt-card">
+                <div class="number-val" data-counter="17" data-suffix="+">0</div>
                 <div class="number-label">Years of Experience</div>
               </div>
-              <div class="number-box">
-                <div class="number-val">₹5,999</div>
+              <div class="number-box tilt-card">
+                <div class="number-val" data-counter="5999" data-prefix="₹">0</div>
                 <div class="number-label">Course Fee</div>
               </div>
-              <div class="number-box">
-                <div class="number-val">9+</div>
+              <div class="number-box tilt-card">
+                <div class="number-val" data-counter="9" data-suffix="+">0</div>
                 <div class="number-label">Core Modules Covered</div>
               </div>
             </div>
@@ -3018,8 +3626,20 @@
           container.classList.add('grid-stagger');
         });
 
+        // Automatically wrap words in headings for true physical curtain slide-up reveal
+        const targetHeadings = document.querySelectorAll('.section-header h2, .hero-content-header h1');
+        targetHeadings.forEach(function (heading) {
+          if (!heading.querySelector('.kinetic-word')) {
+            const rawText = heading.innerText.trim();
+            const words = rawText.split(/\s+/);
+            heading.innerHTML = words.map(function (w) {
+              return `<span class="kinetic-word">${w}</span>`;
+            }).join(' ');
+          }
+        });
+
         const revealElements = document.querySelectorAll(
-          '.section-header, .feature-card, .module-card, .review-card, .stat-box, .location-card, .faq-item, .section-image-card, .mentor-photo-wrap, .lead-form-card'
+          '.hero-content-header, .section-header, .feature-card, .module-card, .review-card, .stat-box, .location-card, .faq-item, .section-image-card, .hero-banner-image, .mentor-photo-wrap, .lead-form-card'
         );
         revealElements.forEach(function (el) {
           el.classList.add('reveal');
@@ -3036,6 +3656,107 @@
           }, { passive: true });
         });
       }
+
+      // 0. High-Converting Hero Typewriter Cycling Text
+      const typewriterElement = document.getElementById('heroTypewriterText');
+      if (typewriterElement) {
+        const phrases = [
+          'Price Action Trading',
+          'Futures & Options (F&O)',
+          'Technical & Chart Analysis',
+          'Intraday & Swing Setups',
+          'Strict Risk Management',
+          'Disciplined Wealth Creation'
+        ];
+        let phraseIndex = 0;
+        let charIndex = phrases[0].length;
+        let isDeleting = false;
+        let typingSpeed = 90;
+
+        function typeLoop() {
+          const currentPhrase = phrases[phraseIndex];
+          if (isDeleting) {
+            typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 45;
+          } else {
+            typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 85;
+          }
+
+          if (!isDeleting && charIndex === currentPhrase.length) {
+            typingSpeed = 2200; // Hold full phrase for reader
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typingSpeed = 400; // Pause before typing next phrase
+          }
+
+          setTimeout(typeLoop, typingSpeed);
+        }
+
+        // Start cycling after initial reveal
+        setTimeout(typeLoop, 1500);
+      }
+
+      // 1. Dynamic Number Counter Animation on Scroll
+      const counterElements = document.querySelectorAll('.number-val[data-counter]');
+      if ('IntersectionObserver' in window && counterElements.length > 0) {
+        const counterObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              const el = entry.target;
+              const target = parseInt(el.getAttribute('data-counter'), 10);
+              const prefix = el.getAttribute('data-prefix') || '';
+              const suffix = el.getAttribute('data-suffix') || '';
+              const duration = 1800;
+              const startTime = performance.now();
+
+              function updateCount(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                // Ease-out cubic curve
+                const currentVal = Math.floor(target * (1 - Math.pow(1 - progress, 3)));
+                el.innerText = prefix + currentVal.toLocaleString('en-IN') + suffix;
+
+                if (progress < 1) {
+                  requestAnimationFrame(updateCount);
+                } else {
+                  el.innerText = prefix + target.toLocaleString('en-IN') + suffix;
+                }
+              }
+              requestAnimationFrame(updateCount);
+              counterObserver.unobserve(el);
+            }
+          });
+        }, { threshold: 0.2 });
+
+        counterElements.forEach(function (el) {
+          counterObserver.observe(el);
+        });
+      }
+
+      // 2. Interactive 3D Card Tilt (Mouse Follow Parallax)
+      const tiltCards = document.querySelectorAll('.tilt-card, .module-card, .review-card, .feature-card, .number-box');
+      tiltCards.forEach(function (card) {
+        card.addEventListener('mousemove', function (e) {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = ((y - centerY) / centerY) * -6;
+          const rotateY = ((x - centerX) / centerX) * 6;
+
+          card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        });
+
+        card.addEventListener('mouseleave', function () {
+          card.style.transform = '';
+        });
+      });
 
       // FAQ Accordion
       const faqItems = document.querySelectorAll('.faq-item');
