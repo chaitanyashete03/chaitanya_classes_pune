@@ -1047,29 +1047,50 @@
       }
     }
 
-    /* 4. Directional Image Slide Reveals (Left -> Right & Right -> Left) */
-    .slide-reveal-left,
-    .reveal.slide-reveal-left {
-      opacity: 0 !important;
-      transform: translate3d(-90px, 0, 0) scale(0.97) !important;
-      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      will-change: opacity, transform;
+    /* 4. Elementor-Style Smooth Elastic BounceIn Animation for Images */
+    .bounceIn-reveal,
+    .section-image-card,
+    .hero-banner-image,
+    .mentor-photo-wrap {
+      opacity: 0;
+      transform: scale3d(0.75, 0.75, 0.75);
+      will-change: transform, opacity;
     }
 
-    .slide-reveal-right,
-    .reveal.slide-reveal-right {
-      opacity: 0 !important;
-      transform: translate3d(90px, 0, 0) scale(0.97) !important;
-      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      will-change: opacity, transform;
+    .bounceIn-reveal.is-visible,
+    .section-image-card.is-visible,
+    .hero-banner-image.is-visible,
+    .mentor-photo-wrap.is-visible {
+      animation: bounceIn 1.1s cubic-bezier(0.215, 0.61, 0.355, 1) both;
     }
 
-    .slide-reveal-left.is-visible,
-    .slide-reveal-right.is-visible,
-    .reveal.slide-reveal-left.is-visible,
-    .reveal.slide-reveal-right.is-visible {
-      opacity: 1 !important;
-      transform: translate3d(0, 0, 0) scale(1) !important;
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale3d(0.72, 0.72, 0.72);
+      }
+
+      25% {
+        transform: scale3d(1.045, 1.045, 1.045);
+      }
+
+      45% {
+        transform: scale3d(0.975, 0.975, 0.975);
+      }
+
+      65% {
+        opacity: 1;
+        transform: scale3d(1.018, 1.018, 1.018);
+      }
+
+      82% {
+        transform: scale3d(0.995, 0.995, 0.995);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+      }
     }
 
     /* 5. 3D Tilt Card Perspective */
@@ -2543,7 +2564,7 @@
     <section class="hero-section" id="hero">
       <!-- Master Overview Banner at Top of Site (Desktop: wide landscape, Mobile: vertical format) -->
       <div class="container" style="margin-bottom: 2.25rem;">
-        <div class="section-image-card slide-reveal-left"
+        <div class="section-image-card bounceIn-reveal"
           style="width: 100%; border-radius: 0; box-shadow: var(--shadow-card);">
           <picture>
             <source media="(max-width: 768px)" srcset="share_market_classes_in_pune_2.webp" width="1086" height="1448">
@@ -3671,22 +3692,10 @@
           container.classList.add('grid-stagger');
         });
 
-        // Directional slide classes for EVERY image across the site
+        // Apply bounceIn animation class to EVERY image across the site
         const allImageCards = document.querySelectorAll('.section-image-card, .hero-banner-image, .mentor-photo-wrap');
         allImageCards.forEach(function (card) {
-          const parentGrid = card.closest('.two-col-grid, .mentor-card-top, .hero-grid');
-          if (parentGrid) {
-            const children = Array.from(parentGrid.children);
-            const childIndex = children.findIndex(c => c === card || c.contains(card));
-            if (childIndex === 0) {
-              card.classList.add('slide-reveal-left');
-            } else {
-              card.classList.add('slide-reveal-right');
-            }
-          } else {
-            // Standalone banners/images: slide in from left to right
-            card.classList.add('slide-reveal-left');
-          }
+          card.classList.add('bounceIn-reveal');
         });
 
         // Automatically wrap words in headings for true physical curtain slide-up reveal
@@ -3702,7 +3711,7 @@
         });
 
         const revealElements = document.querySelectorAll(
-          '.hero-content-header, .section-header, .feature-card, .module-card, .review-card, .stat-box, .location-card, .faq-item, .section-image-card, .hero-banner-image, .mentor-photo-wrap, .lead-form-card, .slide-reveal-left, .slide-reveal-right'
+          '.hero-content-header, .section-header, .feature-card, .module-card, .review-card, .stat-box, .location-card, .faq-item, .section-image-card, .hero-banner-image, .mentor-photo-wrap, .lead-form-card, .bounceIn-reveal'
         );
         revealElements.forEach(function (el) {
           el.classList.add('reveal');
