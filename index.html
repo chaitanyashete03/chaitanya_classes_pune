@@ -1050,17 +1050,17 @@
     /* 4. Directional Image Slide Reveals (Left -> Right & Right -> Left) */
     .slide-reveal-left,
     .reveal.slide-reveal-left {
-      opacity: 0;
-      transform: translateX(-65px) !important;
-      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0 !important;
+      transform: translate3d(-90px, 0, 0) scale(0.97) !important;
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
       will-change: opacity, transform;
     }
 
     .slide-reveal-right,
     .reveal.slide-reveal-right {
-      opacity: 0;
-      transform: translateX(65px) !important;
-      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0 !important;
+      transform: translate3d(90px, 0, 0) scale(0.97) !important;
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), transform 1.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
       will-change: opacity, transform;
     }
 
@@ -1069,7 +1069,7 @@
     .reveal.slide-reveal-left.is-visible,
     .reveal.slide-reveal-right.is-visible {
       opacity: 1 !important;
-      transform: translateX(0) !important;
+      transform: translate3d(0, 0, 0) scale(1) !important;
     }
 
     /* 5. 3D Tilt Card Perspective */
@@ -2542,7 +2542,7 @@
     <section class="hero-section" id="hero">
       <!-- Master Overview Banner at Top of Site (Desktop: wide landscape, Mobile: vertical format) -->
       <div class="container" style="margin-bottom: 2.25rem;">
-        <div class="section-image-card" style="width: 100%; border-radius: 0; box-shadow: var(--shadow-card);">
+        <div class="section-image-card slide-reveal-left" style="width: 100%; border-radius: 0; box-shadow: var(--shadow-card);">
           <picture>
             <source media="(max-width: 768px)" srcset="share_market_classes_in_pune_2.jpeg">
             <img src="share_market_classes_in_pune.jpeg" alt="Share Market Classes in Pune - Pune's Most Trusted Share Market Training Institute" loading="lazy" style="width: 100%; height: auto; display: block; object-fit: contain;">
@@ -3692,15 +3692,17 @@
           }, { passive: true });
         });
 
-        // Immediate check for elements already in viewport on mobile/initial load
+        // Graceful staggered entrance check for elements already in viewport on initial load
         setTimeout(function() {
-          revealElements.forEach(function(el) {
+          revealElements.forEach(function(el, i) {
             const rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom > 0) {
-              el.classList.add('is-visible');
+              setTimeout(function() {
+                el.classList.add('is-visible');
+              }, Math.min(i * 120, 400));
             }
           });
-        }, 100);
+        }, 180);
       }
 
       // 0. High-Converting Hero Typewriter Cycling Text
