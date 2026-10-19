@@ -456,14 +456,8 @@
       box-shadow: var(--shadow-card);
       background: #FFFFFF;
       width: 100%;
-      /* 100% Always visible - no hiding or clipping */
-      opacity: 1;
-      transform: translateY(0);
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-                  box-shadow 0.4s ease,
-                  border-color 0.4s ease;
-      will-change: transform, box-shadow;
-      animation: image-ambient-float 6s ease-in-out infinite;
+      will-change: transform, box-shadow, opacity;
+      transition: box-shadow 0.4s ease, border-color 0.4s ease;
     }
 
     /* Subtle post-reveal ambient floating animation */
@@ -1054,22 +1048,26 @@
     }
 
     /* 4. Directional Image Slide Reveals (Left -> Right & Right -> Left) */
-    .slide-reveal-left {
+    .slide-reveal-left,
+    .reveal.slide-reveal-left {
       opacity: 0;
-      transform: translateX(-55px);
-      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(-65px) !important;
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
-    .slide-reveal-right {
+    .slide-reveal-right,
+    .reveal.slide-reveal-right {
       opacity: 0;
-      transform: translateX(55px);
-      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateX(65px) !important;
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
 
     .slide-reveal-left.is-visible,
-    .slide-reveal-right.is-visible {
+    .slide-reveal-right.is-visible,
+    .reveal.slide-reveal-left.is-visible,
+    .reveal.slide-reveal-right.is-visible {
       opacity: 1 !important;
       transform: translateX(0) !important;
     }
@@ -3646,21 +3644,22 @@
           container.classList.add('grid-stagger');
         });
 
-        // Directional slide classes for images based on left/right position
-        document.querySelectorAll('.two-col-grid, .mentor-card-top, .hero-grid').forEach(function (grid) {
-          const children = Array.from(grid.children);
-          children.forEach(function (child, index) {
-            const imgCard = child.matches('.section-image-card, .hero-banner-image, .mentor-photo-wrap, .hero-image-col')
-              ? child
-              : child.querySelector('.section-image-card, .hero-banner-image, .mentor-photo-wrap');
-            if (imgCard) {
-              if (index === 0) {
-                imgCard.classList.add('slide-reveal-left');
-              } else {
-                imgCard.classList.add('slide-reveal-right');
-              }
+        // Directional slide classes for EVERY image across the site
+        const allImageCards = document.querySelectorAll('.section-image-card, .hero-banner-image, .mentor-photo-wrap');
+        allImageCards.forEach(function (card) {
+          const parentGrid = card.closest('.two-col-grid, .mentor-card-top, .hero-grid');
+          if (parentGrid) {
+            const children = Array.from(parentGrid.children);
+            const childIndex = children.findIndex(c => c === card || c.contains(card));
+            if (childIndex === 0) {
+              card.classList.add('slide-reveal-left');
+            } else {
+              card.classList.add('slide-reveal-right');
             }
-          });
+          } else {
+            // Standalone banners/images: slide in from left to right
+            card.classList.add('slide-reveal-left');
+          }
         });
 
         // Automatically wrap words in headings for true physical curtain slide-up reveal
