@@ -2292,9 +2292,20 @@
 
     @media (max-width: 992px) {
       .hero-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
-        align-items: flex-start;
+        align-items: stretch;
+      }
+
+      .hero-image-col {
+        order: 1;
+        width: 100%;
+      }
+
+      .lead-form-card {
+        order: 2;
+        width: 100%;
       }
 
       .hero-banner-image {
@@ -2321,12 +2332,20 @@
       }
 
       .two-col-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
       }
 
-      .two-col-grid .section-image-card {
-        max-width: 100%;
+      /* In mobile/tablet view: image is ALWAYS first, content is second */
+      .two-col-grid > .section-image-card {
+        order: 1 !important;
+        width: 100%;
+      }
+
+      .two-col-grid > *:not(.section-image-card) {
+        order: 2 !important;
+        width: 100%;
       }
 
       .mentor-card {
@@ -2334,13 +2353,19 @@
       }
 
       .mentor-card-top {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
       }
 
       .mentor-photo-wrap {
+        order: 1 !important;
         max-width: 100%;
         margin: 0 auto;
+      }
+
+      .mentor-details {
+        order: 2 !important;
       }
 
       .location-card {
