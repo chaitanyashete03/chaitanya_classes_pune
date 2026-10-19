@@ -13,13 +13,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google tag (gtag.js) - Google Analytics 4 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YPZXEZ64HC"></script>
+  <!-- Google tag (gtag.js) - Google Analytics 4 (Deferred to prevent critical path blocking) -->
+  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-YPZXEZ64HC"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-YPZXEZ64HC');
   </script>
   <title>Best Share Market Classes in Pune | Chaitanya Share Market Classes</title>
@@ -63,15 +62,19 @@
   <link rel="apple-touch-icon" href="logo.png">
 
   <!-- Performance: Resource Preloads for Core Web Vitals (LCP) -->
-  <link rel="preload" as="image" href="share_market_classes_in_pune.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
-  <link rel="preload" as="image" href="share_market_classes_in_pune_2.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="share_market_classes_in_pune.webp" type="image/webp" media="(min-width: 769px)"
+    fetchpriority="high">
+  <link rel="preload" as="image" href="share_market_classes_in_pune_2.webp" type="image/webp" media="(max-width: 768px)"
+    fetchpriority="high">
 
-  <!-- Google Fonts: Inter & Plus Jakarta Sans with font-display swap -->
+  <!-- Google Fonts: Inter & Plus Jakarta Sans (Non-render-blocking high performance load) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+  </noscript>
 
   <!-- Schema.org Structured Data (Rich Snippets for Google Search) -->
   <script type="application/ld+json">
@@ -417,9 +420,11 @@
       0% {
         transform: translateY(0px);
       }
+
       50% {
         transform: translateY(-5px);
       }
+
       100% {
         transform: translateY(0px);
       }
@@ -431,13 +436,16 @@
         transform: translateX(-120%) rotate(25deg);
         opacity: 0;
       }
+
       20% {
         opacity: 0.55;
       }
+
       45% {
         transform: translateX(180%) rotate(25deg);
         opacity: 0;
       }
+
       100% {
         transform: translateX(180%) rotate(25deg);
         opacity: 0;
@@ -462,9 +470,12 @@
 
     /* Subtle post-reveal ambient floating animation */
     @keyframes image-ambient-float {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0px);
       }
+
       50% {
         transform: translateY(-5px);
       }
@@ -472,14 +483,19 @@
 
     /* Smooth light sheen sweep across image cards */
     @keyframes image-glass-sheen {
-      0%, 35% {
+
+      0%,
+      35% {
         transform: translateX(-160%) rotate(25deg);
         opacity: 0;
       }
+
       45% {
         opacity: 0.55;
       }
-      60%, 100% {
+
+      60%,
+      100% {
         transform: translateX(200%) rotate(25deg);
         opacity: 0;
       }
@@ -495,13 +511,11 @@
       left: -60%;
       width: 220%;
       height: 220%;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.35) 48%,
-        rgba(16, 185, 129, 0.22) 52%,
-        rgba(255, 255, 255, 0) 100%
-      );
+      background: linear-gradient(90deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.35) 48%,
+          rgba(16, 185, 129, 0.22) 52%,
+          rgba(255, 255, 255, 0) 100%);
       pointer-events: none;
       animation: image-glass-sheen 7s ease-in-out infinite;
       z-index: 2;
@@ -568,9 +582,9 @@
     .map-frame-wrap,
     .nav-phone {
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                  border-color 0.3s ease,
-                  box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-                  background-color 0.3s ease;
+        border-color 0.3s ease,
+        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        background-color 0.3s ease;
       will-change: transform, border-color, box-shadow;
     }
 
@@ -618,9 +632,11 @@
       0% {
         box-shadow: 0 0 0 0 rgba(13, 130, 83, 0.35);
       }
+
       50% {
         box-shadow: 0 0 0 14px rgba(13, 130, 83, 0);
       }
+
       100% {
         box-shadow: 0 0 0 0 rgba(13, 130, 83, 0);
       }
@@ -644,12 +660,29 @@
     }
 
     /* Staggered Entrance Delays for Grid Elements */
-    .grid-stagger > *:nth-child(1).reveal { transition-delay: 0.05s; }
-    .grid-stagger > *:nth-child(2).reveal { transition-delay: 0.15s; }
-    .grid-stagger > *:nth-child(3).reveal { transition-delay: 0.25s; }
-    .grid-stagger > *:nth-child(4).reveal { transition-delay: 0.35s; }
-    .grid-stagger > *:nth-child(5).reveal { transition-delay: 0.45s; }
-    .grid-stagger > *:nth-child(6).reveal { transition-delay: 0.55s; }
+    .grid-stagger>*:nth-child(1).reveal {
+      transition-delay: 0.05s;
+    }
+
+    .grid-stagger>*:nth-child(2).reveal {
+      transition-delay: 0.15s;
+    }
+
+    .grid-stagger>*:nth-child(3).reveal {
+      transition-delay: 0.25s;
+    }
+
+    .grid-stagger>*:nth-child(4).reveal {
+      transition-delay: 0.35s;
+    }
+
+    .grid-stagger>*:nth-child(5).reveal {
+      transition-delay: 0.45s;
+    }
+
+    .grid-stagger>*:nth-child(6).reveal {
+      transition-delay: 0.55s;
+    }
 
     @media (prefers-reduced-motion: reduce) {
       .reveal {
@@ -657,6 +690,7 @@
         transform: none !important;
         transition: none !important;
       }
+
       .section-image-card,
       .hero-banner-image,
       .mentor-photo-wrap {
@@ -665,6 +699,7 @@
         opacity: 1 !important;
         transition: none !important;
       }
+
       .pulse-cta {
         animation: none !important;
       }
@@ -719,8 +754,13 @@
     }
 
     @keyframes ticker-slide {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     .ticker-item {
@@ -744,14 +784,12 @@
 
     /* 2. Shimmering Corporate Navy & Emerald Metallic Heading Text */
     .shimmer-text {
-      background: linear-gradient(
-        105deg,
-        #0A2540 0%,
-        #0D8253 28%,
-        #10B981 50%,
-        #0D8253 72%,
-        #0A2540 100%
-      );
+      background: linear-gradient(105deg,
+          #031120 0%,
+          #060706 28%,
+          #3e4240 50%,
+          #707875 72%,
+          #888889 100%);
       background-size: 200% auto;
       color: #0A2540;
       -webkit-background-clip: text;
@@ -761,8 +799,13 @@
     }
 
     @keyframes text-shimmer-sweep {
-      0% { background-position: 0% center; }
-      100% { background-position: 200% center; }
+      0% {
+        background-position: 0% center;
+      }
+
+      100% {
+        background-position: 200% center;
+      }
     }
 
     /* Premium Section Header Formatting & Text Reveal */
@@ -791,7 +834,8 @@
       font-weight: 800;
       letter-spacing: -0.025em;
       line-height: 1.25;
-      overflow: hidden; /* Clips the text during the slide-up curtain entrance */
+      overflow: hidden;
+      /* Clips the text during the slide-up curtain entrance */
       padding: 4px 8px 8px 8px;
     }
 
@@ -811,8 +855,8 @@
       opacity: 0;
       transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform, opacity;
-      /* Premium Pure Emerald / Navy High-Contrast Gradient - No Red Tones */
-      background: linear-gradient(135deg, #0A2540 0%, #0D8253 38%, #10B981 62%, #0A2540 100%);
+      /* Premium Pure Corporate Slate & Navy High-Contrast Gradient - No Green or Red Tones */
+      background: linear-gradient(135deg, #0A2540 0%, #1E293B 40%, #334155 60%, #0A2540 100%);
       background-size: 220% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -829,19 +873,39 @@
 
     /* Staggered delay between words for wave sensation */
     .section-header.is-visible .kinetic-word:nth-child(1),
-    .hero-content-header.is-visible .kinetic-word:nth-child(1) { transition-delay: 0.05s; }
+    .hero-content-header.is-visible .kinetic-word:nth-child(1) {
+      transition-delay: 0.05s;
+    }
+
     .section-header.is-visible .kinetic-word:nth-child(2),
-    .hero-content-header.is-visible .kinetic-word:nth-child(2) { transition-delay: 0.12s; }
+    .hero-content-header.is-visible .kinetic-word:nth-child(2) {
+      transition-delay: 0.12s;
+    }
+
     .section-header.is-visible .kinetic-word:nth-child(3),
-    .hero-content-header.is-visible .kinetic-word:nth-child(3) { transition-delay: 0.19s; }
+    .hero-content-header.is-visible .kinetic-word:nth-child(3) {
+      transition-delay: 0.19s;
+    }
+
     .section-header.is-visible .kinetic-word:nth-child(4),
-    .hero-content-header.is-visible .kinetic-word:nth-child(4) { transition-delay: 0.26s; }
+    .hero-content-header.is-visible .kinetic-word:nth-child(4) {
+      transition-delay: 0.26s;
+    }
+
     .section-header.is-visible .kinetic-word:nth-child(5),
-    .hero-content-header.is-visible .kinetic-word:nth-child(5) { transition-delay: 0.33s; }
+    .hero-content-header.is-visible .kinetic-word:nth-child(5) {
+      transition-delay: 0.33s;
+    }
+
     .section-header.is-visible .kinetic-word:nth-child(6),
-    .hero-content-header.is-visible .kinetic-word:nth-child(6) { transition-delay: 0.40s; }
+    .hero-content-header.is-visible .kinetic-word:nth-child(6) {
+      transition-delay: 0.40s;
+    }
+
     .section-header.is-visible .kinetic-word:nth-child(7),
-    .hero-content-header.is-visible .kinetic-word:nth-child(7) { transition-delay: 0.47s; }
+    .hero-content-header.is-visible .kinetic-word:nth-child(7) {
+      transition-delay: 0.47s;
+    }
 
     /* Continuous gentle floating motion directly on the text characters after settling */
     .section-header.is-visible h2,
@@ -853,6 +917,7 @@
       0% {
         transform: translateY(0px);
       }
+
       100% {
         transform: translateY(-3px);
       }
@@ -868,7 +933,7 @@
       transform: translateX(-50%) scaleX(0);
       width: 80px;
       height: 3px;
-      background: linear-gradient(90deg, #0D8253, #10B981, #0D8253);
+      background: linear-gradient(90deg, #0A2540, #334155, #0A2540);
       background-size: 200% auto;
       border-radius: 3px;
       transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), width 0.45s ease, box-shadow 0.45s ease;
@@ -884,7 +949,7 @@
     .section-header:hover h2::after,
     .hero-content-header:hover h1::after {
       width: 150px;
-      box-shadow: 0 2px 12px rgba(13, 130, 83, 0.45);
+      box-shadow: 0 2px 12px rgba(10, 37, 64, 0.3);
     }
 
     .section-header p {
@@ -900,82 +965,8 @@
       letter-spacing: -0.01em;
     }
 
-    .section-header p + p {
+    .section-header p+p {
       margin-top: 0.75rem;
-    }
-
-    /* Premium Interactive Live Typewriter Badge */
-    .hero-typewriter-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #FFFFFF;
-      border: 1px solid rgba(13, 130, 83, 0.28);
-      border-radius: 999px;
-      padding: 0.4rem 1.15rem;
-      margin-top: 0.85rem;
-      box-shadow: 0 4px 18px rgba(10, 37, 64, 0.06), 0 0 0 1px rgba(16, 185, 129, 0.12);
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--navy-main);
-      transition: all 0.3s ease;
-    }
-
-    .hero-typewriter-badge:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(13, 130, 83, 0.16);
-      border-color: #0D8253;
-    }
-
-    .typewriter-live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10B981;
-      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.6);
-      animation: live-pulse-dot 1.8s infinite;
-      flex-shrink: 0;
-    }
-
-    @keyframes live-pulse-dot {
-      0% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
-        transform: scale(0.95);
-      }
-      70% {
-        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
-        transform: scale(1.15);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
-        transform: scale(0.95);
-      }
-    }
-
-    .typewriter-label {
-      color: var(--text-muted);
-      font-weight: 500;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .typewriter-dynamic-text {
-      color: var(--green-growth);
-      font-weight: 700;
-      letter-spacing: -0.01em;
-    }
-
-    .typewriter-cursor {
-      color: var(--green-growth);
-      font-weight: 400;
-      animation: cursor-blink 0.9s infinite;
-      margin-left: -2px;
-    }
-
-    @keyframes cursor-blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
     }
 
     /* Premium Paragraph Reading Flow - Silky Opacity Elevation */
@@ -1009,6 +1000,7 @@
         box-shadow: 0 0 0 0 rgba(13, 130, 83, 0.2);
         transform: translateY(0);
       }
+
       100% {
         box-shadow: 0 4px 14px rgba(13, 130, 83, 0.25);
         transform: translateY(-1px);
@@ -1042,9 +1034,17 @@
     }
 
     @keyframes aurora-shift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
     }
 
     /* 4. Directional Image Slide Reveals (Left -> Right & Right -> Left) */
@@ -1158,7 +1158,7 @@
 
     .brand-tagline {
       font-size: 0.7rem;
-      color: var(--green-growth);
+      color: var(--text-muted);
       font-weight: 600;
       letter-spacing: 0.03em;
       text-transform: uppercase;
@@ -2346,6 +2346,7 @@
     }
 
     @media (max-width: 768px) {
+
       .section-header h2,
       .hero-content-header h1 {
         font-size: 1.65rem;
@@ -2515,8 +2516,8 @@
   <!-- Navigation -->
   <header class="sticky-nav">
     <div class="container nav-container">
-      <a href="#" class="nav-logo" aria-label="Chaitanya Share Market Classes">
-        <img src="logo.webp" alt="Chaitanya Share Market Classes Logo" class="nav-logo-img">
+      <a href="/" class="nav-logo" aria-label="Chaitanya Share Market Classes Home">
+        <img src="logo.webp" alt="Chaitanya Share Market Classes Logo" class="nav-logo-img" width="46" height="46">
         <div class="brand-text-wrap">
           <span class="brand-title">Chaitanya Share Market Classes</span>
           <span class="brand-tagline">Pune's Premier Education Institute</span>
@@ -2542,10 +2543,14 @@
     <section class="hero-section" id="hero">
       <!-- Master Overview Banner at Top of Site (Desktop: wide landscape, Mobile: vertical format) -->
       <div class="container" style="margin-bottom: 2.25rem;">
-        <div class="section-image-card slide-reveal-left" style="width: 100%; border-radius: 0; box-shadow: var(--shadow-card);">
+        <div class="section-image-card slide-reveal-left"
+          style="width: 100%; border-radius: 0; box-shadow: var(--shadow-card);">
           <picture>
-            <source media="(max-width: 768px)" srcset="share_market_classes_in_pune_2.webp">
-            <img src="share_market_classes_in_pune.webp" fetchpriority="high" alt="Share Market Classes in Pune - Pune's Most Trusted Share Market Training Institute" loading="lazy" style="width: 100%; height: auto; display: block; object-fit: contain;">
+            <source media="(max-width: 768px)" srcset="share_market_classes_in_pune_2.webp" width="1086" height="1448">
+            <img src="share_market_classes_in_pune.webp" fetchpriority="high" loading="eager" decoding="async"
+              width="1600" height="533"
+              alt="Share Market Classes in Pune - Pune's Most Trusted Share Market Training Institute"
+              style="width: 100%; height: auto; display: block; object-fit: contain;">
           </picture>
         </div>
       </div>
@@ -2553,28 +2558,23 @@
       <!-- Section Heading Above Grid (Centered in the middle, above Image & Form Card) -->
       <div class="container hero-content-header" style="margin-bottom: 1.75rem; text-align: center;">
         <span class="section-badge">⭐ Direct 1-on-1 Founder Mentorship · Training Since 2008</span>
-        <h1 style="margin-top: 0.5rem; text-align: center;"><span class="shimmer-text">Best Share Market Classes in Pune</span></h1>
-        
-        <!-- Premium Live Typewriter Interactive Badge -->
-        <div class="hero-typewriter-badge" aria-label="Course Focus Highlights">
-          <span class="typewriter-live-dot" aria-hidden="true"></span>
-          <span class="typewriter-label">Master:</span>
-          <span id="heroTypewriterText" class="typewriter-dynamic-text">Price Action Strategy</span><span class="typewriter-cursor">|</span>
-        </div>
+        <h1 style="margin-top: 0.5rem; text-align: center;"><span class="shimmer-text">Best Share Market Classes in
+            Pune</span></h1>
       </div>
 
       <div class="container hero-grid">
         <div class="hero-image-col reveal-left">
           <div class="hero-banner-image tilt-card">
             <img src="Best_Share_ Market_Classes_in_Pune.webp"
-              alt="Best Share Market Classes in Pune - Chaitanya Share Market Classes" loading="lazy">
+              width="1254" height="1254" loading="eager" fetchpriority="high" decoding="async"
+              alt="Best Share Market Classes in Pune - Chaitanya Share Market Classes">
           </div>
         </div>
 
         <!-- Form Card with Aurora Glow & 3D Tilt -->
         <div class="lead-form-card reveal-right aurora-glow-wrap tilt-card" id="lead-form">
           <div class="form-header">
-            <h3>Enquire for Batch &amp; Get Syllabus</h3>
+            <h2 class="lead-form-title" style="font-size: 1.35rem; color: var(--navy-main); margin-bottom: 0.25rem;">Enquire for Batch &amp; Get Syllabus</h2>
             <p>Fill the form to receive upcoming batch schedule &amp; get instant access to the official 4-page syllabus
               PDF.</p>
           </div>
@@ -2582,13 +2582,15 @@
           <form id="enquiryForm" action="#" method="POST" novalidate>
             <div class="form-group">
               <label for="userName" class="form-label">Full Name *</label>
-              <input type="text" id="userName" name="name" class="form-input" placeholder="Enter your full name" required>
+              <input type="text" id="userName" name="name" class="form-input" placeholder="Enter your full name"
+                required>
             </div>
 
             <div class="form-group">
               <label for="userPhone" class="form-label">Phone Number * (10 Digits)</label>
               <input type="tel" id="userPhone" name="phone" class="form-input"
-                placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}" required>
+                placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}"
+                required>
             </div>
 
             <button type="submit" id="submitBtn" class="btn btn-green btn-full pulse-cta" style="margin-top: 0.5rem;">
@@ -2661,6 +2663,7 @@
 
           <div class="section-image-card">
             <img src="Why Choose Chaitanya Share Market Classes in Pune.webp"
+              width="1254" height="1254"
               alt="Why Choose Chaitanya Share Market Classes in Pune" loading="lazy">
           </div>
         </div>
@@ -2685,6 +2688,7 @@
         <div class="two-col-grid align-start">
           <div class="section-image-card">
             <img src="What Will You Learn in Our Share Market Course.webp"
+              width="1254" height="1254"
               alt="What Will You Learn in Our Share Market Course" loading="lazy">
           </div>
 
@@ -2693,31 +2697,41 @@
               <!-- Topic 1 -->
               <div class="learn-card">
                 <h3>Share Market – Basic to Advanced</h3>
-                <p>Build a strong foundation in the stock market, from basic concepts to advanced trading and investment techniques. Learn market fundamentals, trading methods, analysis, risk management, and practical strategies step by step.</p>
+                <p>Build a strong foundation in the stock market, from basic concepts to advanced trading and investment
+                  techniques. Learn market fundamentals, trading methods, analysis, risk management, and practical
+                  strategies step by step.</p>
               </div>
 
               <!-- Topic 2 -->
               <div class="learn-card">
                 <h3>Commodity &amp; Currency Markets</h3>
-                <p>Learn the fundamentals of commodity and currency markets, including market structure, trading concepts, price movements, and risk management. Understand practical strategies to analyze and trade these markets with greater confidence.</p>
+                <p>Learn the fundamentals of commodity and currency markets, including market structure, trading
+                  concepts, price movements, and risk management. Understand practical strategies to analyze and trade
+                  these markets with greater confidence.</p>
               </div>
 
               <!-- Topic 3 -->
               <div class="learn-card">
                 <h3>Technical &amp; Fundamental Analysis</h3>
-                <p>Learn to analyze stocks using technical indicators, charts, price action, and fundamental factors. Understand how to evaluate market trends, company performance, and make informed investment decisions.</p>
+                <p>Learn to analyze stocks using technical indicators, charts, price action, and fundamental factors.
+                  Understand how to evaluate market trends, company performance, and make informed investment decisions.
+                </p>
               </div>
 
               <!-- Topic 4 -->
               <div class="learn-card">
                 <h3>Futures &amp; Options Market</h3>
-                <p>Learn the fundamentals of Futures &amp; Options, including contract types, trading strategies, margin, and risk management. Understand how to analyze market movements and use F&amp;O strategies effectively.</p>
+                <p>Learn the fundamentals of Futures &amp; Options, including contract types, trading strategies,
+                  margin, and risk management. Understand how to analyze market movements and use F&amp;O strategies
+                  effectively.</p>
               </div>
 
               <!-- Topic 5 -->
               <div class="learn-card">
                 <h3>Intraday &amp; Delivery Trading</h3>
-                <p>Learn the fundamentals of intraday and delivery trading, including trade planning, entry &amp; exit strategies, risk management, and position sizing. Develop practical skills to make informed trading decisions with confidence.</p>
+                <p>Learn the fundamentals of intraday and delivery trading, including trade planning, entry &amp; exit
+                  strategies, risk management, and position sizing. Develop practical skills to make informed trading
+                  decisions with confidence.</p>
               </div>
             </div>
           </div>
@@ -2806,6 +2820,7 @@
 
           <div class="section-image-card">
             <img src="Who Should Join Our Share Market Classes in Pune.webp"
+              width="1254" height="1254"
               alt="Who Should Join Our Share Market Classes in Pune" loading="lazy">
           </div>
         </div>
@@ -2831,6 +2846,7 @@
         <div class="two-col-grid">
           <div class="section-image-card">
             <img src="Practical Share Market Training with Real Market Examples 1.webp"
+              width="1536" height="1024"
               alt="Practical Share Market Training with Real Market Examples" loading="lazy">
           </div>
 
@@ -2961,7 +2977,7 @@
 
           <div class="section-image-card">
             <img src="What You Get After Completing the Course.webp" alt="What You Get After Completing the Course"
-              loading="lazy">
+              width="1254" height="1254" loading="lazy">
           </div>
         </div>
       </div>
@@ -3017,8 +3033,10 @@
 
         <!-- 2-Column Overview: Visual Methodology Graphic + Rich Editorial Explanation -->
         <div class="two-col-grid" style="align-items: stretch; margin-bottom: 2.5rem;">
-          <div class="section-image-card" style="height: 100%; display: flex; align-items: center; justify-content: center;">
-            <img src="Our Unique Learning Methodology.webp" alt="Our Unique Learning Methodology" loading="lazy">
+          <div class="section-image-card"
+            style="height: 100%; display: flex; align-items: center; justify-content: center;">
+            <img src="Our Unique Learning Methodology.webp" alt="Our Unique Learning Methodology"
+              width="1255" height="1255" loading="lazy">
           </div>
 
           <!-- Structured Narrative Box: perfectly balances with the image without empty void -->
@@ -3028,7 +3046,8 @@
             <p>At Chaitanya Share Market Classes, our teaching methodology combines structured classroom learning with
               practical market exposure, helping students build strong concepts from the basics to advanced trading
               techniques.</p>
-            <p>Every session is designed to make learning simple, interactive and easy to understand for beginners as well
+            <p>Every session is designed to make learning simple, interactive and easy to understand for beginners as
+              well
               as experienced learners.</p>
           </div>
         </div>
@@ -3105,7 +3124,7 @@
             <div class="mentor-photo-wrap">
               <img src="Meet Your Mentor.webp"
                 alt="Kishor Bhandage - Founder and Mentor at Chaitanya Share Market Classes Pune" class="mentor-photo"
-                loading="lazy">
+                width="1254" height="1254" loading="lazy">
             </div>
           </div>
 
@@ -3128,8 +3147,8 @@
             </div>
 
             <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
-              <h4 style="color: var(--navy-main); font-size: 1.15rem; margin-bottom: 0.5rem;">Our Focus for Every
-                Student</h4>
+              <h3 style="color: var(--navy-main); font-size: 1.15rem; margin-bottom: 0.5rem;">Our Focus for Every
+                Student</h3>
               <p style="color: var(--text-body); line-height: 1.65; margin-bottom: 0.65rem;">At Chaitanya Share Market
                 Classes, our guidance goes beyond classroom training. We believe that every student deserves practical
                 knowledge, continuous guidance and the confidence to participate in the stock market independently.</p>
@@ -3159,7 +3178,8 @@
         <!-- 1st: Trust Image Banner Centered -->
         <div class="section-image-card" style="max-width: 900px; margin: 0 auto 2.5rem auto;">
           <img src="trusted_by_20000_students_across_india.webp"
-            alt="Trusted by 20,000+ Students Across India - 3,000+ 5-Star Google Reviews" loading="lazy">
+            alt="Trusted by 20,000+ Students Across India - 3,000+ 5-Star Google Reviews"
+            width="1524" height="580" loading="lazy">
         </div>
 
         <!-- 2nd: Reviews in One Row -->
@@ -3254,7 +3274,7 @@
 
           <div class="section-image-card">
             <img src="chaitanya_in_numbers.webp" alt="Chaitanya in Numbers - 17 Years of Trust, 20,000+ Students"
-              loading="lazy">
+              width="1525" height="1031" loading="lazy">
           </div>
         </div>
       </div>
@@ -3415,6 +3435,7 @@
         <div class="two-col-grid align-start">
           <div class="section-image-card">
             <img src="Start Your Share Market Journey Today.webp"
+              width="1536" height="1025"
               alt="Start Your Share Market Journey Today - Chaitanya Share Market Classes" loading="lazy">
           </div>
 
@@ -3470,6 +3491,7 @@
             <div
               style="margin-bottom: 1rem; border-radius: 0; overflow: hidden; border: 1px solid var(--border-subtle);">
               <img src="contact us.webp" alt="Contact Chaitanya Share Market Classes Pune"
+                width="705" height="474"
                 style="width: 100%; height: auto; display: block;" loading="lazy">
             </div>
 
@@ -3511,12 +3533,12 @@
     <div class="container">
       <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem;">
         <div>
-          <h4 style="color: #FFFFFF; margin-bottom: 0.5rem;">Chaitanya Share Market Classes</h4>
+          <h3 style="color: #FFFFFF; font-size: 1.1rem; margin-bottom: 0.5rem;">Chaitanya Share Market Classes</h3>
           <p style="color: #94A3B8; font-size: 0.85rem;">Pune's dedicated stock market training institute since 2008.
             Structured, practical education on technical analysis, fundamental analysis, futures &amp; options.</p>
         </div>
         <div>
-          <h4 style="color: #FFFFFF; font-size: 0.95rem; margin-bottom: 0.5rem;">Quick Links</h4>
+          <h3 style="color: #FFFFFF; font-size: 0.95rem; margin-bottom: 0.5rem;">Quick Links</h3>
           <ul style="list-style: none; font-size: 0.85rem;">
             <li><a href="#hero" style="color: #CBD5E1;">Home</a></li>
             <li><a href="#lead-form" style="color: #CBD5E1;">Enquire Now</a></li>
@@ -3524,7 +3546,7 @@
           </ul>
         </div>
         <div>
-          <h4 style="color: #FFFFFF; font-size: 0.95rem; margin-bottom: 0.5rem;">Contact</h4>
+          <h3 style="color: #FFFFFF; font-size: 0.95rem; margin-bottom: 0.5rem;">Contact</h3>
           <p style="color: #CBD5E1; font-size: 0.85rem;">Phone: <a href="tel:+919021336336"
               style="color: #CBD5E1; text-decoration: underline;">+91 9021 336 336</a></p>
           <p style="color: #CBD5E1; font-size: 0.85rem;">Email: <a href="mailto:csclasses9@gmail.com"
@@ -3563,19 +3585,24 @@
     <div class="modal-card">
       <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close Form">✕</button>
       <div class="form-header">
-        <h3 style="font-size: 1.35rem; color: var(--navy-main); margin-bottom: 0.25rem;">Enquire for Batch &amp; Get Syllabus</h3>
-        <p style="font-size: 0.875rem; color: var(--text-muted);">Fill your name and mobile number to receive upcoming batch schedules &amp; instant 4-page syllabus PDF.</p>
+        <h3 style="font-size: 1.35rem; color: var(--navy-main); margin-bottom: 0.25rem;">Enquire for Batch &amp; Get
+          Syllabus</h3>
+        <p style="font-size: 0.875rem; color: var(--text-muted);">Fill your name and mobile number to receive upcoming
+          batch schedules &amp; instant 4-page syllabus PDF.</p>
       </div>
 
       <form id="popupEnquiryForm" action="#" method="POST" novalidate>
         <div class="form-group">
           <label for="popupUserName" class="form-label">Full Name *</label>
-          <input type="text" id="popupUserName" name="name" class="form-input" placeholder="Enter your full name" required>
+          <input type="text" id="popupUserName" name="name" class="form-input" placeholder="Enter your full name"
+            required>
         </div>
 
         <div class="form-group">
           <label for="popupUserPhone" class="form-label">Phone Number * (10 Digits)</label>
-          <input type="tel" id="popupUserPhone" name="phone" class="form-input" placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}" required>
+          <input type="tel" id="popupUserPhone" name="phone" class="form-input"
+            placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}"
+            required>
         </div>
 
         <button type="submit" id="popupSubmitBtn" class="btn btn-green btn-full pulse-cta" style="margin-top: 0.5rem;">
@@ -3693,60 +3720,16 @@
         });
 
         // Graceful staggered entrance check for elements already in viewport on initial load
-        setTimeout(function() {
-          revealElements.forEach(function(el, i) {
+        setTimeout(function () {
+          revealElements.forEach(function (el, i) {
             const rect = el.getBoundingClientRect();
             if (rect.top < window.innerHeight && rect.bottom > 0) {
-              setTimeout(function() {
+              setTimeout(function () {
                 el.classList.add('is-visible');
               }, Math.min(i * 120, 400));
             }
           });
         }, 180);
-      }
-
-      // 0. High-Converting Hero Typewriter Cycling Text
-      const typewriterElement = document.getElementById('heroTypewriterText');
-      if (typewriterElement) {
-        const phrases = [
-          'Price Action Trading',
-          'Futures & Options (F&O)',
-          'Technical & Chart Analysis',
-          'Intraday & Swing Setups',
-          'Strict Risk Management',
-          'Disciplined Wealth Creation'
-        ];
-        let phraseIndex = 0;
-        let charIndex = phrases[0].length;
-        let isDeleting = false;
-        let typingSpeed = 90;
-
-        function typeLoop() {
-          const currentPhrase = phrases[phraseIndex];
-          if (isDeleting) {
-            typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            typingSpeed = 45;
-          } else {
-            typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            typingSpeed = 85;
-          }
-
-          if (!isDeleting && charIndex === currentPhrase.length) {
-            typingSpeed = 2200; // Hold full phrase for reader
-            isDeleting = true;
-          } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            phraseIndex = (phraseIndex + 1) % phrases.length;
-            typingSpeed = 400; // Pause before typing next phrase
-          }
-
-          setTimeout(typeLoop, typingSpeed);
-        }
-
-        // Start cycling after initial reveal
-        setTimeout(typeLoop, 1500);
       }
 
       // 1. Dynamic Number Counter Animation on Scroll
