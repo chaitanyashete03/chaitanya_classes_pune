@@ -2071,33 +2071,150 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Floating WhatsApp & Mobile Bar */
-    .floating-whatsapp {
+    /* Floating WhatsApp & Animated Reward Speech Bubble */
+    .floating-whatsapp-wrap {
       position: fixed;
       bottom: 25px;
       right: 25px;
-      z-index: 999;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      pointer-events: none;
+    }
+
+    .floating-whatsapp {
+      pointer-events: auto;
+      position: relative;
       background: #25D366;
       color: #FFFFFF;
-      width: 56px;
-      height: 56px;
+      width: 58px;
+      height: 58px;
       border-radius: 50% !important;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+      animation: whatsapp-subtle-bounce 3.5s ease-in-out infinite;
+    }
+
+    @keyframes whatsapp-subtle-bounce {
+      0%, 80%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      85% {
+        transform: translateY(-8px) scale(1.08);
+      }
+      92% {
+        transform: translateY(-2px) scale(1.02);
+      }
     }
 
     .floating-whatsapp:hover {
-      transform: scale(1.06);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.55);
+      transform: scale(1.12) !important;
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.65);
     }
 
     .floating-whatsapp svg {
-      width: 30px;
-      height: 30px;
+      width: 32px;
+      height: 32px;
       fill: currentColor;
+    }
+
+    /* Red Unread Notification Badge */
+    .whatsapp-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: #EF4444;
+      color: #FFFFFF;
+      font-size: 0.7rem;
+      font-weight: 800;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 2px 6px rgba(239, 68, 68, 0.5);
+      animation: badge-pulse 1.8s infinite;
+    }
+
+    @keyframes badge-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    /* High-Converting Floating Speech Bubble / Lead Magnet Tooltip */
+    .whatsapp-speech-bubble {
+      pointer-events: auto;
+      background: #0A2540;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 32px rgba(10, 37, 64, 0.35);
+      border-radius: 8px !important;
+      padding: 0.65rem 0.95rem;
+      font-size: 0.8rem;
+      line-height: 1.35;
+      margin-bottom: 12px;
+      max-width: 240px;
+      text-align: right;
+      position: relative;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(12px) scale(0.92);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .whatsapp-speech-bubble.is-active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .whatsapp-speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -7px;
+      right: 22px;
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 7px solid #0A2540;
+    }
+
+    .whatsapp-bubble-icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+      animation: reward-shake 2s infinite ease-in-out;
+    }
+
+    @keyframes reward-shake {
+      0%, 80%, 100% { transform: rotate(0deg); }
+      85% { transform: rotate(14deg); }
+      90% { transform: rotate(-14deg); }
+      95% { transform: rotate(10deg); }
+    }
+
+    .whatsapp-bubble-text {
+      text-align: left;
+    }
+
+    .whatsapp-bubble-text strong {
+      display: block;
+      color: #6EE7B7;
+      font-size: 0.825rem;
+      letter-spacing: -0.01em;
+    }
+
+    .whatsapp-bubble-text span {
+      color: #CBD5E1;
+      font-size: 0.725rem;
     }
 
     .mobile-sticky-bar {
@@ -2450,11 +2567,21 @@
         display: block;
       }
 
+      .floating-whatsapp-wrap {
+        bottom: 74px;
+        right: 14px;
+      }
+
       .floating-whatsapp {
-        bottom: 75px;
-        right: 15px;
-        width: 48px;
-        height: 48px;
+        width: 52px;
+        height: 52px;
+      }
+
+      .whatsapp-speech-bubble {
+        max-width: 210px;
+        padding: 0.55rem 0.8rem;
+        margin-bottom: 8px;
+        font-size: 0.75rem;
       }
 
       .steps-grid {
@@ -2577,7 +2704,7 @@
           </svg>
           <span>9021 336 336</span>
         </a>
-        <a href="#lead-form" class="btn btn-green nav-cta-btn pulse-cta">Enquire Now</a>
+        <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20Please%20send%20me%20the%20Free%20Price%20Action%20%26%20F%26O%20Cheat%20Sheet%20(PDF)%20%26%20Pune%20weekend%20batch%20details." target="_blank" rel="noopener noreferrer" class="btn btn-green nav-cta-btn pulse-cta">💬 WhatsApp Us</a>
       </div>
     </div>
   </header>
@@ -2619,10 +2746,30 @@
 
         <!-- Form Card with Aurora Glow & 3D Tilt -->
         <div class="lead-form-card reveal-right aurora-glow-wrap tilt-card" id="lead-form">
+          <div style="background: linear-gradient(135deg, #0A2540 0%, #1E3A8A 100%); color: #FFFFFF; padding: 0.55rem 0.85rem; margin: -1.75rem -1.75rem 1.15rem -1.75rem; display: flex; align-items: center; justify-content: space-between;">
+            <span style="font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #6EE7B7; display: flex; align-items: center; gap: 0.35rem;">
+              🎁 FREE BONUS · PRICE ACTION CHEAT SHEET
+            </span>
+          </div>
+
           <div class="form-header">
-            <h2 class="lead-form-title" style="font-size: 1.35rem; color: var(--navy-main); margin-bottom: 0.25rem;">Enquire for Batch &amp; Get Syllabus</h2>
-            <p>Fill the form to receive upcoming batch schedule &amp; get instant access to the official 4-page syllabus
-              PDF.</p>
+            <h2 class="lead-form-title" style="font-size: 1.35rem; color: var(--navy-main); margin-bottom: 0.25rem;">Enquire &amp; Get Free Cheat Sheet</h2>
+            <p>Get the upcoming Pune weekend batch schedule + instant 4-page syllabus &amp; Price Action PDF delivered directly to your WhatsApp.</p>
+          </div>
+
+          <!-- Instant 1-Click WhatsApp Shortcut -->
+          <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20Please%20send%20me%20the%20Free%20Price%20Action%20%26%20F%26O%20Cheat%20Sheet%20(PDF)%20and%20upcoming%20Pune%20weekend%20batch%20details." 
+             target="_blank" rel="noopener noreferrer" 
+             class="btn pulse-cta" 
+             style="background: #25D366; color: #FFFFFF; font-weight: 800; font-size: 0.95rem; padding: 0.75rem 1rem; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; margin-bottom: 1.15rem; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);">
+            <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: currentColor;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            <span>📲 Instant 1-Click WhatsApp Access</span>
+          </a>
+
+          <div style="display: flex; align-items: center; text-align: center; margin-bottom: 1.15rem;">
+            <span style="flex: 1; height: 1px; background: var(--border-subtle);"></span>
+            <span style="padding: 0 0.75rem; font-size: 0.725rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">OR RECEIVE VIA FORM</span>
+            <span style="flex: 1; height: 1px; background: var(--border-subtle);"></span>
           </div>
 
           <form id="enquiryForm" action="#" method="POST" novalidate>
@@ -2633,18 +2780,18 @@
             </div>
 
             <div class="form-group">
-              <label for="userPhone" class="form-label">Phone Number * (10 Digits)</label>
+              <label for="userPhone" class="form-label">WhatsApp Number * (10 Digits)</label>
               <input type="tel" id="userPhone" name="phone" class="form-input"
-                placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}"
+                placeholder="Enter 10-digit WhatsApp number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}"
                 required>
             </div>
 
-            <button type="submit" id="submitBtn" class="btn btn-green btn-full pulse-cta" style="margin-top: 0.5rem;">
-              Get Batch Details &amp; Syllabus PDF ↓
+            <button type="submit" id="submitBtn" class="btn btn-green btn-full pulse-cta" style="margin-top: 0.5rem; font-size: 0.95rem; font-weight: 800;">
+              🚀 Send Cheat Sheet &amp; Syllabus to My WhatsApp →
             </button>
 
             <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 0.65rem;">
-              🔒 Your details are 100% confidential. Used only for batch &amp; course enquiry.
+              🔒 Strictly 0 spam. We will only WhatsApp you the Cheat Sheet &amp; Batch schedule.
             </p>
 
             <div id="formSuccess" class="form-success-msg" role="status" aria-live="polite"></div>
@@ -2806,9 +2953,10 @@
               covering complete module details for Basics, Technical Analysis, Futures &amp; Options Strategies,
               Commodities, Mutual Funds, Live Trading Workshops &amp; Benefits.</p>
           </div>
-          <a href="#lead-form" class="btn btn-green"
-            style="font-size: 0.925rem; white-space: nowrap; padding: 0.75rem 1.35rem;">
-            📥 Download Syllabus PDF →
+          <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20Please%20send%20me%20the%20Official%204-Page%20Syllabus%20PDF%20%26%20Price%20Action%20Cheat%20Sheet." 
+             target="_blank" rel="noopener noreferrer" class="btn btn-green pulse-cta"
+             style="font-size: 0.925rem; white-space: nowrap; padding: 0.75rem 1.35rem; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+            📲 Get Syllabus &amp; Cheat Sheet on WhatsApp →
           </a>
         </div>
       </div>
@@ -3505,16 +3653,16 @@
             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
               <a href="tel:+919021336336" class="btn"
                 style="background: #FFFFFF; color: var(--navy-main); font-weight: 700; flex: 1; text-align: center; white-space: nowrap;">
-                CALL: 9021 336 336
+                📞 CALL: 9021 336 336
               </a>
-              <a href="https://wa.me/919021336336?text=Hi%2C%20I%20am%20interested%20in%20learning%20share%20market%20at%20Chaitanya%20Classes%20Pune."
-                target="_blank" rel="noopener noreferrer" class="btn btn-green"
-                style="flex: 1; text-align: center; white-space: nowrap;">
-                WHATSAPP NOW
+              <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20I%20am%20ready%20to%20learn.%20Please%20send%20me%20the%20Free%20Price%20Action%20Cheat%20Sheet%20%26%20Pune%20weekend%20batch%20seat%20details."
+                target="_blank" rel="noopener noreferrer" class="btn btn-green pulse-cta"
+                style="flex: 1; text-align: center; white-space: nowrap; font-weight: 800;">
+                💬 WHATSAPP (FREE CHEAT SHEET)
               </a>
               <a href="#lead-form" class="btn btn-full"
-                style="background: transparent; border: 1px solid #FFFFFF; color: #FFFFFF; text-align: center; margin-top: 0.25rem;">
-                ENQUIRE FOR BATCH →
+                style="background: transparent; border: 1px solid #FFFFFF; color: #FFFFFF; text-align: center; margin-top: 0.25rem; font-weight: 600;">
+                📝 ENQUIRE FOR BATCH →
               </a>
             </div>
           </div>
@@ -3626,37 +3774,59 @@
     </div>
   </div>
 
-  <!-- Popup Modal for Quick Enquiry Form -->
-  <div id="enquiryModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Quick Course Enquiry Form">
-    <div class="modal-card">
+  <!-- Popup Modal for Quick Enquiry & Free Cheat Sheet Giveaway -->
+  <div id="enquiryModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Free Price Action Cheat Sheet & Course Details">
+    <div class="modal-card" style="position: relative; overflow: hidden; border: 2px solid var(--navy-border);">
+      <div style="background: linear-gradient(135deg, #0A2540 0%, #1E3A8A 100%); color: #FFFFFF; padding: 0.6rem 1rem; margin: -1.75rem -1.75rem 1.25rem -1.75rem; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-size: 0.775rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #6EE7B7; display: flex; align-items: center; gap: 0.35rem;">
+          🔥 FREE GIVEAWAY · TODAY'S VISITORS ONLY
+        </span>
+      </div>
+
       <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close Form">✕</button>
-      <div class="form-header">
-        <h3 style="font-size: 1.35rem; color: var(--navy-main); margin-bottom: 0.25rem;">Enquire for Batch &amp; Get
-          Syllabus</h3>
-        <p style="font-size: 0.875rem; color: var(--text-muted);">Fill your name and mobile number to receive upcoming
-          batch schedules &amp; instant 4-page syllabus PDF.</p>
+      
+      <div class="form-header" style="text-align: left; margin-bottom: 1.15rem;">
+        <h3 style="font-size: 1.35rem; color: var(--navy-main); line-height: 1.25; margin-bottom: 0.35rem;">
+          Get Kishor Sir's <span style="color: var(--green-growth);">Price Action &amp; F&amp;O Cheat Sheet</span> (PDF)
+        </h3>
+        <p style="font-size: 0.85rem; color: var(--text-dark); line-height: 1.45;">
+          Plus instant access to the official 4-page syllabus &amp; weekend batch timings delivered directly to your WhatsApp.
+        </p>
+      </div>
+
+      <!-- Instant 1-Click WhatsApp Shortcut (Fastest Conversion) -->
+      <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20I%20want%20the%20Free%20Price%20Action%20%26%20F%26O%20Cheat%20Sheet%20(PDF)%20and%20upcoming%20weekend%20batch%20details." 
+         target="_blank" rel="noopener noreferrer" 
+         class="btn pulse-cta" 
+         style="background: #25D366; color: #FFFFFF; font-weight: 800; font-size: 0.95rem; padding: 0.75rem 1rem; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; margin-bottom: 1.25rem; box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);">
+        <svg viewBox="0 0 24 24" style="width: 22px; height: 22px; fill: currentColor;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span>📲 Get on WhatsApp (1-Click Instant)</span>
+      </a>
+
+      <div style="display: flex; align-items: center; text-align: center; margin-bottom: 1.15rem;">
+        <span style="flex: 1; height: 1px; background: var(--border-subtle);"></span>
+        <span style="padding: 0 0.75rem; font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">OR ENTER NUMBER BELOW</span>
+        <span style="flex: 1; height: 1px; background: var(--border-subtle);"></span>
       </div>
 
       <form id="popupEnquiryForm" action="#" method="POST" novalidate>
         <div class="form-group">
           <label for="popupUserName" class="form-label">Full Name *</label>
-          <input type="text" id="popupUserName" name="name" class="form-input" placeholder="Enter your full name"
-            required>
+          <input type="text" id="popupUserName" name="name" class="form-input" placeholder="Enter your full name" required>
         </div>
 
         <div class="form-group">
-          <label for="popupUserPhone" class="form-label">Phone Number * (10 Digits)</label>
+          <label for="popupUserPhone" class="form-label">WhatsApp Number * (10 Digits)</label>
           <input type="tel" id="popupUserPhone" name="phone" class="form-input"
-            placeholder="Enter 10-digit mobile number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}"
-            required>
+            placeholder="Enter 10-digit WhatsApp number" maxlength="10" inputmode="numeric" pattern="[6-9][0-9]{9}" required>
         </div>
 
-        <button type="submit" id="popupSubmitBtn" class="btn btn-green btn-full pulse-cta" style="margin-top: 0.5rem;">
-          Get Batch Details &amp; Syllabus PDF ↓
+        <button type="submit" id="popupSubmitBtn" class="btn btn-green btn-full pulse-cta" style="margin-top: 0.5rem; font-size: 0.95rem; font-weight: 800;">
+          🚀 Send Cheat Sheet &amp; Syllabus to My WhatsApp →
         </button>
 
         <p style="font-size: 0.75rem; color: var(--text-muted); text-align: center; margin-top: 0.65rem;">
-          🔒 Your details are 100% confidential. Used only for course enquiry.
+          🔒 Strictly 0 spam. We will only WhatsApp you the Cheat Sheet &amp; Batch schedule.
         </p>
 
         <div id="popupFormSuccess" class="form-success-msg" role="status" aria-live="polite"></div>
@@ -3664,23 +3834,35 @@
     </div>
   </div>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/919021336336?text=Hi%2C%20I%20am%20interested%20in%20learning%20share%20market%20courses%20at%20Chaitanya%20Share%20Market%20Classes%20Pune."
-    class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24">
-      <path
-        d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-    </svg>
-  </a>
+  <!-- Floating WhatsApp with Interactive Gift Speech Bubble -->
+  <div class="floating-whatsapp-wrap" id="floatingWhatsappWrap">
+    <div class="whatsapp-speech-bubble" id="whatsappSpeechBubble" aria-label="WhatsApp Reward Notification">
+      <span class="whatsapp-bubble-icon">🎁</span>
+      <div class="whatsapp-bubble-text">
+        <strong>Free Cheat Sheet Inside!</strong>
+        <span>Tap to get Price Action PDF</span>
+      </div>
+    </div>
+    <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20I%20am%20visiting%20your%20website.%20Please%20send%20me%20the%20Free%20Price%20Action%20Cheat%20Sheet%20(PDF)%20%26%20Pune%20weekend%20batch%20details."
+      class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+      <span class="whatsapp-badge">1</span>
+      <svg viewBox="0 0 24 24">
+        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+      </svg>
+    </a>
+  </div>
 
-  <!-- Mobile Sticky Bar -->
+  <!-- Mobile Sticky Bottom WhatsApp & Call Bar -->
   <aside class="mobile-sticky-bar">
     <div class="mobile-bar-flex">
-      <a href="tel:+919021336336" class="mobile-call-btn">
-        📞 Call Now
+      <a href="tel:+919021336336" class="mobile-call-btn" aria-label="Call 9021 336 336">
+        📞 Call
       </a>
-      <a href="#lead-form" class="mobile-enquire-btn">
-        Book Your Seat →
+      <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20I%20am%20interested%20in%20joining%20the%20Share%20Market%20weekend%20batch%20in%20Pune.%20Please%20share%20details%20%26%20Cheat%20Sheet." 
+         class="mobile-enquire-btn pulse-cta" 
+         target="_blank" rel="noopener noreferrer" 
+         style="background: #25D366; display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-weight: 800; font-size: 0.875rem;">
+        💬 Chat on WhatsApp (Free Cheat Sheet)
       </a>
     </div>
   </aside>
@@ -3962,8 +4144,35 @@
         });
       }
 
-      // Attach open modal trigger to all CTA Enquiry Buttons
-      const ctaButtons = document.querySelectorAll('.nav-cta-btn, .mobile-enquire-btn, a[href="#lead-form"]');
+      // 1. Auto-show WhatsApp speech bubble after 2 seconds
+      const speechBubble = document.getElementById('whatsappSpeechBubble');
+      setTimeout(function () {
+        if (speechBubble) {
+          speechBubble.classList.add('is-active');
+        }
+      }, 2000);
+
+      // Clicking speech bubble opens WhatsApp with high-converting cheat sheet request
+      if (speechBubble) {
+        speechBubble.addEventListener('click', function () {
+          window.open('https://wa.me/919021336336?text=' + encodeURIComponent('Hi Kishor Sir! 👋 I want to claim the Free Price Action Cheat Sheet (PDF) & Pune weekend batch details.'), '_blank');
+        });
+      }
+
+      // 2. Auto-open modal popup after 3.5 seconds on first visit to hook the visitor immediately
+      setTimeout(function () {
+        try {
+          if (!sessionStorage.getItem('enquiryModalShown')) {
+            openEnquiryModal();
+            sessionStorage.setItem('enquiryModalShown', 'true');
+          }
+        } catch (err) {
+          openEnquiryModal();
+        }
+      }, 3500);
+
+      // Attach open modal trigger to explicit Enquiry Buttons (excluding direct WhatsApp/tel links)
+      const ctaButtons = document.querySelectorAll('a[href="#lead-form"]');
       ctaButtons.forEach(function (btn) {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
