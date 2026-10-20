@@ -456,7 +456,6 @@
     .section-image-card,
     .hero-banner-image,
     .mentor-photo-wrap {
-      cursor: zoom-in;
       position: relative;
       border-radius: 0;
       overflow: hidden;
@@ -3744,14 +3743,6 @@
     </div>
   </footer>
 
-  <!-- Lightbox Modal for Image Zoom Preview -->
-  <div id="imageLightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image Zoom Preview">
-    <div class="lightbox-content-wrap">
-      <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Close Preview">✕</button>
-      <img src="" alt="Enlarged view" class="lightbox-img" id="lightboxImg">
-      <div class="lightbox-caption" id="lightboxCaption"></div>
-    </div>
-  </div>
 
   <!-- Popup Modal for Quick Enquiry & Free Cheat Sheet Giveaway -->
   <div id="enquiryModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Free Price Action Cheat Sheet & Course Details">
@@ -4040,61 +4031,6 @@
         });
       }
 
-      // Lightbox Image Zoom Functionality
-      const lightbox = document.getElementById('imageLightbox');
-      const lightboxImg = document.getElementById('lightboxImg');
-      const lightboxCaption = document.getElementById('lightboxCaption');
-      const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
-
-      const zoomableImages = document.querySelectorAll(
-        '.hero-banner-image img, .section-image-card img, .mentor-photo-wrap img, .location-card img'
-      );
-
-      function openLightbox(img) {
-        if (!lightbox || !lightboxImg) return;
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt || 'Enlarged Image';
-        if (lightboxCaption) {
-          lightboxCaption.innerText = img.alt || '';
-        }
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        if (!lightbox) return;
-        lightbox.classList.remove('active');
-        if (lightboxImg) lightboxImg.src = '';
-        document.body.style.overflow = '';
-      }
-
-      zoomableImages.forEach(function (img) {
-        img.addEventListener('click', function (e) {
-          e.stopPropagation();
-          openLightbox(img);
-        });
-      });
-
-      if (lightboxCloseBtn) {
-        lightboxCloseBtn.addEventListener('click', function (e) {
-          e.stopPropagation();
-          closeLightbox();
-        });
-      }
-
-      if (lightbox) {
-        lightbox.addEventListener('click', function (e) {
-          if (e.target === lightbox) {
-            closeLightbox();
-          }
-        });
-      }
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && lightbox && lightbox.classList.contains('active')) {
-          closeLightbox();
-        }
-      });
 
       // Modal Popup Controls & Form Triggering
       const enquiryModal = document.getElementById('enquiryModal');
