@@ -2323,6 +2323,122 @@
       transform: rotate(90deg);
     }
 
+    /* Continuous Greed & Trader Nurture Hook Banners */
+    .hook-nurture-banner {
+      background: linear-gradient(135deg, #06182C 0%, #0A2540 50%, #064E3B 100%);
+      border: 1px solid rgba(110, 231, 183, 0.35);
+      box-shadow: 0 10px 30px rgba(6, 78, 59, 0.25);
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hook-nurture-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hook-nurture-flex {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hook-nurture-content {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hook-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid #10B981;
+      color: #6EE7B7;
+      font-size: 0.725rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.65rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hook-title {
+      color: #FFFFFF;
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+      line-height: 1.3;
+    }
+
+    .hook-desc {
+      color: #CBD5E1;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .hook-action-btn {
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #FFFFFF;
+      font-weight: 900;
+      font-size: 0.95rem;
+      padding: 0.85rem 1.4rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
+      border: 1px solid #6EE7B7;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .hook-action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 22px rgba(37, 211, 102, 0.6);
+      color: #FFFFFF;
+    }
+
+    /* Modal Surprise Gift Box Ribbon & Countdown */
+    .gift-ribbon-tag {
+      background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      padding: 0.3rem 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+      animation: badge-pulse 1.8s infinite;
+    }
+
+    .gift-countdown-timer {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      font-family: monospace;
+      color: #FEF08A;
+      font-weight: 800;
+    }
+
     /* Lightbox Modal & Image Zoom */
     .lightbox-modal {
       display: none;
@@ -2836,6 +2952,21 @@
             <img src="Why Choose Chaitanya Share Market Classes in Pune.webp"
               width="1254" height="1254"
               alt="Why Choose Chaitanya Share Market Classes in Pune" loading="lazy">
+        </div>
+
+        <!-- Continuous Greed & Trader Nurture Hook 1 -->
+        <div class="hook-nurture-banner">
+          <div class="hook-nurture-flex">
+            <div class="hook-nurture-content">
+              <span class="hook-badge">🔥 LIMITED SEATS · THIS WEEKEND ONLY</span>
+              <div class="hook-title">Want Kishor Sir's High-Accuracy Price Action Chart Setup?</div>
+              <p class="hook-desc">Skip traditional boring theory. Get Kishor Sir's tested Intraday &amp; F&amp;O setups delivered to your WhatsApp + grab an exclusive weekend batch fee voucher.</p>
+            </div>
+            <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20I%20saw%20the%20Special%20Offer.%20Please%20send%20me%20the%20Price%20Action%20Setup%20(PDF)%20%26%20Weekend%20Batch%20discount%20voucher." 
+               target="_blank" rel="noopener noreferrer" 
+               class="hook-action-btn pulse-cta">
+              <span>📲 Send My Free Setup On WhatsApp →</span>
+            </a>
           </div>
         </div>
       </div>
@@ -3152,6 +3283,22 @@
               width="1254" height="1254" loading="lazy">
           </div>
         </div>
+
+        <!-- Continuous Greed & Trader Nurture Hook 2 -->
+        <div class="hook-nurture-banner">
+          <div class="hook-nurture-flex">
+            <div class="hook-nurture-content">
+              <span class="hook-badge">🎁 ALL-INCLUSIVE VALUE · SAVE ₹15,000+</span>
+              <div class="hook-title">Get Full Access to 50+ Video Lectures + 1-on-1 Mentor Support</div>
+              <p class="hook-desc">Don't risk your hard-earned money without a proven edge. Join Kishor Sir's comprehensive Master Course for just ₹5,999 with zero hidden charges. Claim your batch schedule instantly.</p>
+            </div>
+            <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20I%20want%20to%20enroll%20in%20the%20All-Inclusive%20Course%20(%E2%82%B95,999).%20Please%20send%20me%20the%20Weekend%20Batch%20dates%20%26%20Cheat%20Sheet." 
+               target="_blank" rel="noopener noreferrer" 
+               class="hook-action-btn pulse-cta">
+              <span>💬 Lock My Batch Seat On WhatsApp →</span>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -3447,6 +3594,22 @@
           <div class="section-image-card">
             <img src="chaitanya_in_numbers.webp" alt="Chaitanya in Numbers - 17 Years of Trust, 20,000+ Students"
               width="1525" height="1031" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Continuous Greed & Trader Nurture Hook 3 -->
+        <div class="hook-nurture-banner">
+          <div class="hook-nurture-flex">
+            <div class="hook-nurture-content">
+              <span class="hook-badge">⭐ 20,000+ TRADERS CAN'T BE WRONG</span>
+              <div class="hook-title">Join Pune's Top Rated Share Market Batch This Saturday</div>
+              <p class="hook-desc">Direct 1-on-1 mentor guidance with founder Kishor Bhandage. Limited seats to maintain high personal attention. Connect directly on WhatsApp to reserve your weekend seat.</p>
+            </div>
+            <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20I%20want%20to%20attend%20this%20Saturday's%20batch%20in%20Pune.%20Please%20reserve%20my%20seat%20%26%20send%20the%20Free%20Cheat%20Sheet." 
+               target="_blank" rel="noopener noreferrer" 
+               class="hook-action-btn pulse-cta">
+              <span>📲 Reserve My Saturday Seat On WhatsApp →</span>
+            </a>
           </div>
         </div>
       </div>
@@ -3746,21 +3909,27 @@
 
   <!-- Popup Modal for Quick Enquiry & Free Cheat Sheet Giveaway -->
   <div id="enquiryModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Free Price Action Cheat Sheet & Course Details">
-    <div class="modal-card" style="position: relative; overflow: hidden; border: 2px solid var(--navy-border);">
-      <div style="background: linear-gradient(135deg, #0A2540 0%, #1E3A8A 100%); color: #FFFFFF; padding: 0.6rem 1rem; margin: -1.75rem -1.75rem 1.25rem -1.75rem; display: flex; align-items: center; justify-content: space-between;">
-        <span style="font-size: 0.775rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: #6EE7B7; display: flex; align-items: center; gap: 0.35rem;">
-          🔥 FREE GIVEAWAY · TODAY'S VISITORS ONLY
+    <div class="modal-card" style="position: relative; overflow: hidden; border: 2px solid #10B981; box-shadow: 0 25px 60px rgba(6, 78, 59, 0.45);">
+      <div style="background: linear-gradient(135deg, #064E3B 0%, #06182C 100%); color: #FFFFFF; padding: 0.75rem 1rem; margin: -2.25rem -2rem 1.25rem -2rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #10B981;">
+        <span class="gift-ribbon-tag">
+          🎁 SURPRISE TRADER GIFT UNLOCKED
+        </span>
+        <span style="font-size: 0.75rem; color: #CBD5E1; display: flex; align-items: center; gap: 0.35rem;">
+          Expires in: <span class="gift-countdown-timer" id="giftModalTimer">04:59</span>
         </span>
       </div>
 
       <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close Form">✕</button>
       
       <div class="form-header" style="text-align: left; margin-bottom: 1.15rem;">
-        <h3 style="font-size: 1.35rem; color: var(--navy-main); line-height: 1.25; margin-bottom: 0.35rem;">
-          Get Kishor Sir's <span style="color: var(--green-growth);">Price Action &amp; F&amp;O Cheat Sheet</span> (PDF)
+        <div style="display: inline-block; background: #FEF08A; color: #854D0E; font-size: 0.725rem; font-weight: 800; padding: 0.2rem 0.55rem; text-transform: uppercase; margin-bottom: 0.45rem; border-radius: 2px;">
+          Worth ₹4,999 · FREE Today For Pune Website Visitors
+        </div>
+        <h3 style="font-size: 1.35rem; color: var(--navy-main); line-height: 1.25; margin-bottom: 0.35rem; font-weight: 800;">
+          Claim Kishor Sir's <span style="color: var(--green-growth);">Secret Price Action &amp; F&amp;O Trading Setup</span> (PDF)
         </h3>
-        <p style="font-size: 0.85rem; color: var(--text-dark); line-height: 1.45;">
-          Plus instant access to the official 4-page syllabus &amp; weekend batch timings delivered directly to your WhatsApp.
+        <p style="font-size: 0.85rem; color: #334155; line-height: 1.45; margin: 0;">
+          Used by 20,000+ students in Pune. Learn exact Entry, Target &amp; Stop-Loss rules + receive upcoming weekend batch fee discounts directly on WhatsApp.
         </p>
       </div>
 
@@ -4073,7 +4242,7 @@
         });
       }
 
-      // 2. Auto-open modal popup after 3.5 seconds on first visit to hook the visitor immediately
+      // 2. Auto-open Surprise Gift pop-up modal after 1.2 seconds when user opens the website
       setTimeout(function () {
         try {
           if (!sessionStorage.getItem('enquiryModalShown')) {
@@ -4083,7 +4252,24 @@
         } catch (err) {
           openEnquiryModal();
         }
-      }, 3500);
+      }, 1200);
+
+      // 3. Live 5-Minute Greed Countdown Timer in Surprise Gift Modal
+      const timerDisplay = document.getElementById('giftModalTimer');
+      if (timerDisplay) {
+        let totalSeconds = 4 * 60 + 59;
+        const countdownInterval = setInterval(function () {
+          if (totalSeconds <= 0) {
+            clearInterval(countdownInterval);
+            timerDisplay.innerText = '00:00';
+            return;
+          }
+          const m = Math.floor(totalSeconds / 60);
+          const s = totalSeconds % 60;
+          timerDisplay.innerText = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+          totalSeconds--;
+        }, 1000);
+      }
 
       // Attach open modal trigger to explicit Enquiry Buttons (excluding direct WhatsApp/tel links)
       const ctaButtons = document.querySelectorAll('a[href="#lead-form"]');
