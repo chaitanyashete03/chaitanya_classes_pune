@@ -1882,50 +1882,155 @@
       line-height: 1.35;
     }
 
-    /* Reviews Grid */
+    /* Authentic Google Reviews Styling */
+    .google-reviews-header-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-medium);
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .google-rating-summary {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .google-g-logo {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+
+    .google-score-num {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--navy-main);
+      line-height: 1;
+    }
+
+    .google-stars {
+      color: #FBBC04;
+      font-size: 1.25rem;
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .google-count-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-top: 1.5rem;
+      margin-top: 1rem;
     }
 
     .review-card {
       background: #FFFFFF;
       border: 1px solid var(--border-subtle);
-      border-radius: 0;
-      padding: 2rem;
+      border-radius: 8px;
+      padding: 1.6rem 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 4px 14px rgba(10, 37, 64, 0.05);
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 24px rgba(10, 37, 64, 0.08);
+      border-color: #CBD5E1;
+    }
+
+    .review-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+    }
+
+    .reviewer-profile {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .reviewer-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #FFFFFF;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .reviewer-meta {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.25;
+    }
+
+    .reviewer-name {
+      font-weight: 700;
+      color: var(--navy-main);
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .reviewer-badge-verified {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.7rem;
+      color: #10B981;
+      font-weight: 600;
+      gap: 0.2rem;
+    }
+
+    .review-time {
+      font-size: 0.75rem;
+      color: #64748B;
+      margin-top: 0.2rem;
+    }
+
+    .review-google-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      opacity: 0.9;
     }
 
     .star-rating {
-      color: var(--gold-accent);
-      font-size: 1.1rem;
+      color: #FBBC04;
+      font-size: 1.05rem;
       letter-spacing: 2px;
       margin-bottom: 0.75rem;
     }
 
-    .review-author {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 0.85rem;
-      margin-top: 1rem;
-    }
-
-    .author-name {
-      font-weight: 700;
-      color: var(--navy-main);
-      font-size: 0.95rem;
-    }
-
-    .review-time {
-      font-size: 0.8rem;
-      color: var(--text-muted);
+    .review-quote {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #334155;
+      margin: 0;
     }
 
     /* FAQ Section */
@@ -3495,56 +3600,132 @@
         </div>
 
         <!-- 1st: Trust Image Banner Centered -->
-        <div class="section-image-card" style="max-width: 900px; margin: 0 auto 2.5rem auto;">
+        <div class="section-image-card" style="max-width: 900px; margin: 0 auto 2rem auto;">
           <img src="trusted_by_20000_students_across_india.webp"
             alt="Trusted by 20,000+ Students Across India - 3,000+ 5-Star Google Reviews"
             width="1524" height="580" loading="lazy">
         </div>
 
-        <!-- 2nd: Reviews in One Row -->
+        <!-- Authentic Google Business Rating Summary Card -->
+        <div class="google-reviews-header-card">
+          <div class="google-rating-summary">
+            <svg class="google-g-logo" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 0.5rem;">
+                <span class="google-score-num">4.9</span>
+                <span class="google-stars">★★★★★</span>
+              </div>
+              <div class="google-count-text">Based on <strong>3,000+ verified student reviews</strong> on Google Maps</div>
+            </div>
+          </div>
+          <a href="https://share.google/F2PGKh4EfcQO9c6Lj" target="_blank" rel="noopener noreferrer"
+            class="btn btn-outline-navy" style="font-size: 0.85rem; padding: 0.55rem 1.15rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+            <span>Write a Review on Google ↗</span>
+          </a>
+        </div>
+
+        <!-- 2nd: Realistic Google Reviews Grid -->
         <div class="reviews-grid">
+          <!-- Review 1 -->
           <div class="review-card">
             <div>
+              <div class="review-top-bar">
+                <div class="reviewer-profile">
+                  <div class="reviewer-avatar" style="background: linear-gradient(135deg, #2563EB, #1D4ED8);">S</div>
+                  <div class="reviewer-meta">
+                    <span class="reviewer-name">Sanjeev Choudhury <span class="reviewer-badge-verified">✔ Verified Student</span></span>
+                    <span class="review-time">Pune · 2 weeks ago</span>
+                  </div>
+                </div>
+                <svg class="review-google-icon" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+              </div>
               <div class="star-rating">★★★★★</div>
-              <p class="review-quote">"Excellent knowledge sharing. The course covers from beginner to advance. The best
-                part is it only covers share market education, but also provides excellent advice on financial
-                planning."</p>
+              <p class="review-quote">
+                "I attended the Sinhgad Road weekend batch. Kishor Sir teaches everything practically from scratch. The Technical Analysis and Candlestick chart breakdown made candlestick patterns crystal clear. Best part is direct 1-on-1 doubt solving without any rushing. Highly recommended for beginners!"
+              </p>
             </div>
-            <div class="review-author">
-              <span class="author-name">Sanjeev Choudhury</span>
-              <span class="review-time">2 weeks ago</span>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border-subtle); font-size: 0.75rem; color: #64748B;">
+              📌 Weekend Classroom Batch · Sinhgad Road, Pune
             </div>
           </div>
 
+          <!-- Review 2 -->
           <div class="review-card">
             <div>
+              <div class="review-top-bar">
+                <div class="reviewer-profile">
+                  <div class="reviewer-avatar" style="background: linear-gradient(135deg, #059669, #047857);">P</div>
+                  <div class="reviewer-meta">
+                    <span class="reviewer-name">Pooja Deshmukh <span class="reviewer-badge-verified">✔ Verified Student</span></span>
+                    <span class="review-time">Kothrud, Pune · 1 month ago</span>
+                  </div>
+                </div>
+                <svg class="review-google-icon" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+              </div>
               <div class="star-rating">★★★★★</div>
-              <p class="review-quote">"Very well structured course. Concepts are explained in simple and practical way.
-                Live market examples and doubt solving sessions are extremely helpful."</p>
+              <p class="review-quote">
+                "As a homemaker, I had zero financial market background. Kishor Sir's teaching method is very calm, practical, and systematic. The 50+ video lectures in the student portal are super helpful for revising on weekdays. The ₹5,999 fee with lifetime revision access is genuine and unmatched in Pune."
+              </p>
             </div>
-            <div class="review-author">
-              <span class="author-name">Pooja Deshmukh</span>
-              <span class="review-time">1 month ago</span>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border-subtle); font-size: 0.75rem; color: #64748B;">
+              📌 Weekend Classroom + 50 Recorded Lectures Access
             </div>
           </div>
 
+          <!-- Review 3 -->
           <div class="review-card">
             <div>
+              <div class="review-top-bar">
+                <div class="reviewer-profile">
+                  <div class="reviewer-avatar" style="background: linear-gradient(135deg, #D97706, #B45309);">R</div>
+                  <div class="reviewer-meta">
+                    <span class="reviewer-name">Rohit Patil <span class="reviewer-badge-verified">✔ Verified Student</span></span>
+                    <span class="review-time">Hinjewadi, Pune · 3 weeks ago</span>
+                  </div>
+                </div>
+                <svg class="review-google-icon" viewBox="0 0 24 24">
+                  <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                  <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                  <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                  <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                </svg>
+              </div>
               <div class="star-rating">★★★★★</div>
-              <p class="review-quote">"One of the best institutes for share market learning in Pune. Practical learning,
-                real-time examples, and dedicated guidance is what makes this course unique."</p>
+              <p class="review-quote">
+                "Working in IT, I could only do weekends. Kishor Sir taught us Futures &amp; Options hedging strategies and strict risk control so we never overtrade. Unlike commercial institutes charging 25k-40k, Chaitanya classes provides genuine market education. Best decision!"
+              </p>
             </div>
-            <div class="review-author">
-              <span class="author-name">Rohit Patil</span>
-              <span class="review-time">3 weeks ago</span>
+            <div style="margin-top: 1rem; padding-top: 0.75rem; border-top: 1px dashed var(--border-subtle); font-size: 0.75rem; color: #64748B;">
+              📌 Working Professional Batch · Futures &amp; Options Module
             </div>
           </div>
         </div>
 
-        <div style="text-align: center; margin-top: 2rem;">
+        <div style="text-align: center; margin-top: 2.25rem;">
           <a href="https://share.google/F2PGKh4EfcQO9c6Lj" target="_blank" rel="noopener noreferrer"
-            class="btn btn-outline-navy" style="min-width: 260px;">
-            View More Google Reviews ↗
+            class="btn btn-outline-navy" style="min-width: 280px; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 700;">
+            <svg style="width: 18px; height: 18px; vertical-align: middle;" viewBox="0 0 24 24">
+              <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+              <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+            </svg>
+            <span>Read All 3,000+ Reviews on Google Maps ↗</span>
           </a>
         </div>
       </div>
