@@ -2532,17 +2532,23 @@
     .hook-action-btn {
       background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
       color: #FFFFFF;
-      font-weight: 900;
+      font-weight: 800;
       font-size: 0.95rem;
       padding: 0.85rem 1.4rem;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.6rem;
       text-decoration: none;
-      white-space: nowrap;
+      white-space: normal;
+      text-align: center;
+      max-width: 100%;
+      box-sizing: border-box;
       box-shadow: 0 4px 18px rgba(37, 211, 102, 0.45);
       border: 1px solid #6EE7B7;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      word-break: break-word;
+      line-height: 1.35;
     }
 
     .hook-action-btn:hover {
@@ -2822,20 +2828,46 @@
       }
 
       .floating-whatsapp-wrap {
-        bottom: 74px;
+        bottom: 82px;
         right: 14px;
       }
 
       .floating-whatsapp {
-        width: 52px;
-        height: 52px;
+        width: 50px;
+        height: 50px;
       }
 
       .whatsapp-speech-bubble {
-        max-width: 210px;
-        padding: 0.55rem 0.8rem;
+        max-width: 195px;
+        padding: 0.5rem 0.75rem;
         margin-bottom: 8px;
-        font-size: 0.75rem;
+        font-size: 0.725rem;
+      }
+
+      .hook-nurture-banner {
+        padding: 1.25rem 1rem;
+        margin: 1.5rem 0;
+      }
+
+      .hook-nurture-flex {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+
+      .hook-action-btn {
+        width: 100%;
+        font-size: 0.875rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .syllabus-download-banner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .syllabus-download-btn {
+        width: 100%;
       }
 
       .steps-grid {
@@ -2933,9 +2965,33 @@
         font-size: 0.85rem;
         line-height: 1.55;
       }
+
+      .floating-whatsapp-wrap {
+        bottom: 84px;
+        right: 12px;
+      }
+
+      .whatsapp-speech-bubble {
+        max-width: 175px;
+        font-size: 0.7rem;
+      }
     }
 
     @media (max-width: 380px) {
+      .floating-whatsapp-wrap {
+        bottom: 82px;
+        right: 10px;
+      }
+
+      .floating-whatsapp {
+        width: 48px;
+        height: 48px;
+      }
+
+      .whatsapp-speech-bubble {
+        max-width: 160px;
+        font-size: 0.68rem;
+      }
       .brand-title {
         font-size: 0.85rem;
       }
@@ -3248,21 +3304,22 @@
 
         <!-- Download Detailed Syllabus PDF Banner -->
         <div
-          style="background: var(--navy-main); color: #FFFFFF; padding: 1.75rem 2rem; margin-top: 1.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; border: 1px solid var(--border-medium);">
-          <div style="max-width: 700px;">
+          class="syllabus-download-banner"
+          style="background: var(--navy-main); color: #FFFFFF; padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1rem, 3vw, 2rem); margin-top: 1.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; border: 1px solid var(--border-medium); box-sizing: border-box; width: 100%;">
+          <div style="max-width: 700px; min-width: 0; flex: 1 1 280px;">
             <span
               style="background: var(--green-growth); color: #FFFFFF; font-size: 0.725rem; font-weight: 800; padding: 0.2rem 0.55rem; text-transform: uppercase; letter-spacing: 0.05em; display: inline-block; margin-bottom: 0.45rem;">📄
               Official 4-Page Course Brochure</span>
-            <h3 style="color: #FFFFFF; font-size: 1.25rem; margin-bottom: 0.3rem;">Want the Complete Syllabus &amp;
+            <h3 style="color: #FFFFFF; font-size: clamp(1.1rem, 2.5vw, 1.25rem); margin-bottom: 0.3rem; line-height: 1.3;">Want the Complete Syllabus &amp;
               Topic Breakdown?</h3>
-            <p style="color: #CBD5E1; font-size: 0.9rem; margin: 0; line-height: 1.5;">Download our official 4-page PDF
+            <p style="color: #CBD5E1; font-size: 0.875rem; margin: 0; line-height: 1.5;">Download our official 4-page PDF
               covering complete module details for Basics, Technical Analysis, Futures &amp; Options Strategies,
               Commodities, Mutual Funds, Live Trading Workshops &amp; Benefits.</p>
           </div>
           <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20Please%20send%20me%20the%20Official%204-Page%20Course%20Syllabus%20PDF%20%26%20Schedule." 
-             target="_blank" rel="noopener noreferrer" class="btn btn-green pulse-cta"
-             style="font-size: 0.925rem; white-space: nowrap; padding: 0.75rem 1.35rem; display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
-            📥 Download Course Syllabus PDF on WhatsApp →
+             target="_blank" rel="noopener noreferrer" class="btn btn-green pulse-cta syllabus-download-btn"
+             style="font-size: 0.925rem; white-space: normal; text-align: center; max-width: 100%; box-sizing: border-box; padding: 0.75rem 1.35rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; word-break: break-word; line-height: 1.35;">
+            <span>📥 Download Course Syllabus PDF on WhatsApp →</span>
           </a>
         </div>
       </div>
