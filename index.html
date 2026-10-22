@@ -4859,17 +4859,10 @@
         });
       }
 
-      // 2. Auto-open Course Enquiry pop-up modal after 2.5 seconds on first visit
+      // 2. Auto-open Trader Gift Box pop-up modal unconditionally on every visit & refresh (after 1.5s)
       setTimeout(function () {
-        try {
-          if (!sessionStorage.getItem('enquiryModalShown')) {
-            openEnquiryModal();
-            sessionStorage.setItem('enquiryModalShown', 'true');
-          }
-        } catch (err) {
-          openEnquiryModal();
-        }
-      }, 2500);
+        openEnquiryModal();
+      }, 1500);
 
       // Attach open modal trigger to explicit Enquiry Buttons (excluding direct WhatsApp/tel links)
       const ctaButtons = document.querySelectorAll('a[href="#lead-form"]');
