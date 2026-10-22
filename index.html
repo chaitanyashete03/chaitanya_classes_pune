@@ -2424,19 +2424,19 @@
     }
 
     .modal-card {
-      background: #0B132B;
+      background: #06182C;
       color: #FFFFFF;
       width: 100%;
-      max-width: 680px;
-      max-height: 92vh;
+      max-width: 820px;
+      max-height: 94vh;
       overflow-y: auto;
-      padding: clamp(1.25rem, 3vw, 1.75rem);
+      padding: clamp(1.2rem, 3vw, 1.85rem);
       position: relative;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(245, 158, 11, 0.15);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.8), 0 0 30px rgba(251, 191, 36, 0.15);
       transform: translateY(24px) scale(0.95);
       transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      border-radius: 16px;
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      border-radius: 18px;
       box-sizing: border-box;
     }
 
@@ -2448,254 +2448,307 @@
       position: absolute;
       top: 14px;
       right: 14px;
-      background: rgba(255, 255, 255, 0.1);
+      background: #0B1E36;
       border: 1px solid rgba(255, 255, 255, 0.2);
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: #CBD5E1;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      transition: all 0.2s ease;
       z-index: 10;
     }
 
     .modal-close-btn:hover {
       background: #EF4444;
+      border-color: #EF4444;
       color: #FFFFFF;
       transform: rotate(90deg);
     }
 
-    /* Gift Modal Interior Styling */
-    .gift-modal-header {
+    /* Executive Visitor Gift Modal Styles */
+    .gift-modal-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.95fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .gift-left-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .gift-badge-script {
+      font-family: 'Caveat', cursive, sans-serif;
+      font-size: 1.45rem;
+      color: #F8FAFC;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.2rem;
+      display: block;
+    }
+
+    .gift-title-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 0.85rem;
-      margin-bottom: 1.15rem;
-      padding-right: 2rem;
+      gap: 0.75rem;
+      margin-bottom: 0.4rem;
     }
 
-    .gift-brand-badge {
+    .gift-title-wrap h2 {
+      margin: 0;
+      line-height: 1.05;
+      color: #FFFFFF;
+      font-size: clamp(1.4rem, 3.2vw, 2.15rem);
+      font-weight: 900;
+    }
+
+    .gift-title-wrap h2 span {
+      display: block;
+      color: #FBBF24;
+      font-size: clamp(2rem, 4.5vw, 2.85rem);
+      letter-spacing: -0.02em;
+    }
+
+    .gift-icon-art {
+      width: clamp(48px, 6vw, 64px);
+      height: clamp(48px, 6vw, 64px);
+      flex-shrink: 0;
+    }
+
+    .gift-tagline {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      font-weight: 700;
+      color: #E2E8F0;
+      margin-bottom: 0.85rem;
+    }
+
+    .gift-banner-ribbon {
+      background: linear-gradient(135deg, #FDE68A 0%, #F59E0B 100%);
+      color: #0F172A;
+      font-size: clamp(0.78rem, 1.8vw, 0.88rem);
+      font-weight: 800;
+      padding: 0.4rem 0.85rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      line-height: 1.35;
+      display: inline-block;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+    }
+
+    /* 2x2 Resource Badges Grid */
+    .gift-resources-2x2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.55rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .gift-res-card {
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-    }
-
-    .gift-brand-icon {
-      width: 26px;
-      height: 26px;
-      fill: #F59E0B;
-    }
-
-    .gift-brand-text strong {
-      display: block;
-      color: #FFFFFF;
-      font-size: 0.95rem;
+      gap: 0.55rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.45rem 0.65rem;
       line-height: 1.2;
     }
 
-    .gift-brand-text span {
+    .gift-res-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .gift-res-text strong {
+      display: block;
+      color: #F8FAFC;
+      font-size: 0.775rem;
+    }
+
+    .gift-res-text span {
       display: block;
       color: #94A3B8;
-      font-size: 0.725rem;
+      font-size: 0.68rem;
     }
 
-    .gift-ribbon-headline {
-      background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
-      color: #0F172A;
-      font-size: 0.75rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      padding: 0.3rem 0.75rem;
+    .gift-script-quote {
+      font-family: 'Caveat', cursive, sans-serif;
+      font-size: 1.25rem;
+      color: #FDE68A;
+      text-align: center;
+      margin: 0.25rem 0 0.65rem 0;
+      display: block;
+    }
+
+    /* Gold / Yellow CTA Button matching reference */
+    .gift-gold-cta {
+      background: linear-gradient(135deg, #FDE047 0%, #F59E0B 100%);
+      color: #0F172A !important;
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      padding: 0.8rem 1.4rem;
       border-radius: 50px;
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.35rem;
-      text-transform: uppercase;
-      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+      justify-content: center;
+      gap: 0.65rem;
+      width: 100%;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.45), 0 0 16px rgba(253, 224, 71, 0.35);
+      border: 2px solid #FEF08A;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-sizing: border-box;
+      margin-bottom: 0.45rem;
     }
 
-    .gift-modal-body {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      gap: 1.5rem;
-      align-items: center;
-      margin-bottom: 1.25rem;
+    .gift-gold-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(245, 158, 11, 0.6), 0 0 24px rgba(253, 224, 71, 0.5);
     }
 
-    .gift-box-image-wrap {
+    .gift-wa-pill-icon {
+      background: #25D366;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .gift-wa-pill-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: #FFFFFF;
+    }
+
+    .gift-tap-subtext {
+      text-align: center;
+      font-size: 0.725rem;
+      color: #94A3B8;
+      margin: 0;
+    }
+
+    /* Right Visual Column */
+    .gift-right-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(245, 158, 11, 0.3);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 20px rgba(245, 158, 11, 0.2);
     }
 
-    .gift-box-image-wrap img {
+    .gift-right-heading {
+      font-family: 'Caveat', cursive, sans-serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
+      color: #93C5FD;
+      text-align: center;
+      margin-bottom: 0.65rem;
+      line-height: 1.2;
+    }
+
+    .gift-bundle-preview {
+      position: relative;
+      width: 100%;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(59, 130, 246, 0.2);
+    }
+
+    .gift-bundle-preview img {
       width: 100%;
       height: auto;
       display: block;
       object-fit: cover;
     }
 
-    .gift-headline-wrap h2 {
-      color: #FFFFFF;
-      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
-      line-height: 1.25;
-      font-weight: 900;
-      margin: 0 0 0.4rem 0;
+    /* 4-Pillar Trust Grid at Bottom */
+    .gift-trust-quad {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      padding-top: 1rem;
+      margin-top: 1.15rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      width: 100%;
     }
 
-    .gift-headline-wrap h2 span {
-      color: #FBBF24;
-      display: block;
-    }
-
-    .gift-subhead {
-      font-size: 0.825rem;
-      color: #CBD5E1;
-      margin-bottom: 0.85rem;
-      line-height: 1.45;
-    }
-
-    .gift-items-list {
+    .gift-trust-item {
       display: flex;
       flex-direction: column;
-      gap: 0.55rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .gift-item-row {
-      display: flex;
       align-items: center;
-      gap: 0.65rem;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 0.45rem 0.75rem;
-      border-radius: 8px;
-      transition: background 0.2s ease;
+      gap: 0.25rem;
     }
 
-    .gift-item-row:hover {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .gift-item-icon {
-      width: 28px;
-      height: 28px;
+    .gift-trust-icon-circle {
+      width: 32px;
+      height: 32px;
       border-radius: 50%;
+      background: rgba(30, 58, 138, 0.5);
+      border: 1px solid rgba(147, 197, 253, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.85rem;
-      flex-shrink: 0;
+      font-size: 0.95rem;
+      color: #93C5FD;
     }
 
-    .gift-item-content {
-      line-height: 1.25;
-    }
-
-    .gift-item-content strong {
-      display: block;
-      font-size: 0.825rem;
-      color: #F8FAFC;
-    }
-
-    .gift-item-content span {
+    .gift-trust-item strong {
       font-size: 0.725rem;
+      color: #F1F5F9;
+      line-height: 1.2;
+    }
+
+    .gift-trust-item span {
+      font-size: 0.65rem;
       color: #94A3B8;
+      line-height: 1.15;
     }
 
-    .gift-cta-wrap {
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .gift-whatsapp-btn {
-      background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
-      color: #FFFFFF;
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
-      font-weight: 900;
-      letter-spacing: 0.02em;
-      padding: 0.85rem 1.4rem;
-      border-radius: 50px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.65rem;
-      width: 100%;
-      text-decoration: none;
-      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.45), 0 0 15px rgba(34, 197, 94, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-sizing: border-box;
-    }
-
-    .gift-whatsapp-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(34, 197, 94, 0.6), 0 0 20px rgba(34, 197, 94, 0.5);
-      color: #FFFFFF;
-    }
-
-    .gift-cta-note {
-      font-size: 0.75rem;
-      color: #94A3B8;
-      margin-top: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-    }
-
-    .gift-trust-footer {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.65rem;
-      padding-top: 1rem;
-      margin-top: 1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      text-align: center;
-    }
-
-    .gift-trust-pill {
-      font-size: 0.725rem;
-      color: #CBD5E1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      line-height: 1.25;
-    }
-
-    @media (max-width: 600px) {
-      .modal-card {
-        padding: 1.15rem 1rem;
-        max-height: 94vh;
-      }
-
-      .gift-modal-body {
+    @media (max-width: 768px) {
+      .gift-modal-layout {
         grid-template-columns: 1fr;
-        gap: 0.85rem;
+        gap: 1.25rem;
       }
 
-      .gift-box-image-wrap {
-        max-width: 130px;
+      .gift-bundle-preview {
+        max-width: 260px;
         margin: 0 auto;
       }
 
-      .gift-trust-footer {
-        grid-template-columns: 1fr;
-        gap: 0.45rem;
-        text-align: left;
+      .gift-trust-quad {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .modal-card {
+        padding: 1.15rem 0.9rem;
       }
 
-      .gift-trust-pill {
-        justify-content: flex-start;
+      .gift-resources-2x2 {
+        grid-template-columns: 1fr;
+      }
+
+      .gift-title-wrap h2 span {
+        font-size: 2.1rem;
       }
     }
 
@@ -4473,117 +4526,142 @@
   </footer>
 
 
-  <!-- Popup Modal: Unlocked Trader Gift Box Experience -->
+  <!-- Popup Modal: Premium Executive Visitor Gift Experience -->
   <div id="enquiryModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Unlock Your Free Share Market Gift">
     <div class="modal-card">
       <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close Form">✕</button>
       
-      <!-- Modal Header -->
-      <div class="gift-modal-header">
-        <div class="gift-brand-badge">
-          <svg class="gift-brand-icon" viewBox="0 0 24 24">
-            <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6h-6z"/>
-          </svg>
-          <div class="gift-brand-text">
-            <strong>Chaitanya Share Market Classes</strong>
-            <span>Pune · 17+ Years of Teaching Excellence</span>
+      <div class="gift-modal-layout">
+        <!-- Left Column: Copy, 2x2 Resource Badges, and Gold CTA -->
+        <div class="gift-left-col">
+          <span class="gift-badge-script">Hello Future Trader! 👋</span>
+
+          <div class="gift-title-wrap">
+            <div>
+              <div style="font-size: 0.95rem; font-weight: 700; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.05em;">We have a special</div>
+              <h2>
+                VISITOR
+                <span>GIFT</span>
+              </h2>
+            </div>
+            <!-- Gift Box Graphic Icon -->
+            <svg class="gift-icon-art" viewBox="0 0 64 64" fill="none">
+              <path d="M32 6C35 2 41 2 45 6C49 10 47 16 41 18H32V6Z" fill="#FBBF24"/>
+              <path d="M32 6C29 2 23 2 19 6C15 10 17 16 23 18H32V6Z" fill="#F59E0B"/>
+              <rect x="10" y="18" width="44" height="12" rx="2" fill="#FBBF24"/>
+              <rect x="14" y="30" width="36" height="26" rx="2" fill="#F59E0B"/>
+              <rect x="29" y="18" width="6" height="38" fill="#FEF08A"/>
+              <path d="M12 10L6 14M52 10L58 14M32 2V0" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+            </svg>
           </div>
-        </div>
-        <div class="gift-ribbon-headline">
-          🎁 Special Gift For You!
-        </div>
-      </div>
 
-      <!-- Modal Body (Two-Column Grid) -->
-      <div class="gift-modal-body">
-        <!-- Visual Column: 3D Glowing Gift Box -->
-        <div class="gift-box-image-wrap">
-          <img src="share_market_gift_box.jpg" 
-               alt="Free Share Market Learning Kit Gift Box" 
-               width="400" height="400" loading="eager">
-        </div>
+          <div class="gift-tagline">Just for You!</div>
 
-        <!-- Content Column: Offer Checklist -->
-        <div class="gift-headline-wrap">
-          <h2>
-            UNLOCK YOUR FREE
-            <span>SHARE MARKET GIFT!</span>
-          </h2>
-          <p class="gift-subhead">
-            Get Exclusive Share Market Learning Material <strong>100% FREE!</strong>
-          </p>
+          <div class="gift-banner-ribbon">
+            🎁 Get Our <strong>FREE</strong> Share Market Learning E-Book &amp; Resources
+          </div>
 
-          <div class="gift-items-list">
-            <!-- Item 1 -->
-            <div class="gift-item-row">
-              <div class="gift-item-icon" style="background: rgba(245, 158, 11, 0.2); color: #FBBF24;">
-                📖
+          <!-- 2x2 Resource Checklist matching reference -->
+          <div class="gift-resources-2x2">
+            <!-- Box 1: Blue -->
+            <div class="gift-res-card">
+              <div class="gift-res-icon" style="background: rgba(37, 99, 235, 0.25); color: #60A5FA;">
+                📘
               </div>
-              <div class="gift-item-content">
-                <strong>Share Market Beginner's Guide (PDF)</strong>
-                <span>Learn the complete market basics from scratch</span>
+              <div class="gift-res-text">
+                <strong>Share Market</strong>
+                <span>Basics &amp; Concepts</span>
               </div>
             </div>
 
-            <!-- Item 2 -->
-            <div class="gift-item-row">
-              <div class="gift-item-icon" style="background: rgba(16, 185, 129, 0.2); color: #34D399;">
-                📈
-              </div>
-              <div class="gift-item-content">
-                <strong>Technical Analysis Guide (PDF)</strong>
-                <span>Understand market trends, support &amp; resistance</span>
-              </div>
-            </div>
-
-            <!-- Item 3 -->
-            <div class="gift-item-row">
-              <div class="gift-item-icon" style="background: rgba(239, 68, 68, 0.2); color: #F87171;">
+            <!-- Box 2: Purple -->
+            <div class="gift-res-card">
+              <div class="gift-res-icon" style="background: rgba(168, 85, 247, 0.25); color: #C084FC;">
                 🕯️
               </div>
-              <div class="gift-item-content">
-                <strong>Candlestick Patterns Guide (PDF)</strong>
-                <span>Trade reversals and breakouts with high confidence</span>
+              <div class="gift-res-text">
+                <strong>Candlestick Patterns</strong>
+                <span>Reversal &amp; Breakout Guide</span>
               </div>
             </div>
 
-            <!-- Item 4 -->
-            <div class="gift-item-row">
-              <div class="gift-item-icon" style="background: rgba(168, 85, 247, 0.2); color: #C084FC;">
-                🎯
+            <!-- Box 3: Green -->
+            <div class="gift-res-card">
+              <div class="gift-res-icon" style="background: rgba(16, 185, 129, 0.25); color: #34D399;">
+                📈
               </div>
-              <div class="gift-item-content">
-                <strong>Complete Learning Roadmap</strong>
-                <span>Your structured journey from beginner to disciplined investor</span>
+              <div class="gift-res-text">
+                <strong>Technical Analysis</strong>
+                <span>Practical Chart Guide</span>
               </div>
             </div>
+
+            <!-- Box 4: Orange -->
+            <div class="gift-res-card">
+              <div class="gift-res-icon" style="background: rgba(249, 115, 22, 0.25); color: #FB923C;">
+                📑
+              </div>
+              <div class="gift-res-text">
+                <strong>F&amp;O &amp; Hedging</strong>
+                <span>Strategy Insights</span>
+              </div>
+            </div>
+          </div>
+
+          <span class="gift-script-quote">Learn • Understand • Grow</span>
+
+          <!-- Gold Impact CTA matching reference -->
+          <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20I%20want%20to%20unlock%20my%20Free%20Visitor%20Gift%20(Share%20Market%20Beginner%27s%20Guide%2C%20Candlestick%20Guide%2C%20Technical%20Analysis%20PDF%20%26%20Pune%20batch%20details)." 
+             target="_blank" rel="noopener noreferrer" 
+             class="gift-gold-cta pulse-cta">
+            <span class="gift-wa-pill-icon">
+              <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            </span>
+            <span>UNLOCK MY FREE GIFT →</span>
+          </a>
+
+          <p class="gift-tap-subtext">
+            Tap the button and message us on WhatsApp to receive your free gift.
+          </p>
+        </div>
+
+        <!-- Right Column: 3D Hardcover E-Book + Guide Stack Visual -->
+        <div class="gift-right-col">
+          <div class="gift-right-heading">
+            Your Journey<br>
+            to Financial Knowledge<br>
+            Starts Here... ⤵
+          </div>
+          
+          <div class="gift-bundle-preview">
+            <img src="share_market_ebook_bundle.jpg" 
+                 alt="Share Market Beginner's Guide 3D Book &amp; Trading Resources" 
+                 width="500" height="500" loading="eager">
           </div>
         </div>
       </div>
 
-      <!-- High-Impact 1-Click WhatsApp CTA Button -->
-      <div class="gift-cta-wrap">
-        <a href="https://wa.me/919021336336?text=Hi%20Kishor%20Sir!%20%F0%9F%91%8B%20I%20want%20to%20unlock%20my%20Free%20Share%20Market%20Gift%20Kit%20(Beginner%27s%20Guide%2C%20Technical%20Analysis%20PDF%2C%20Candlestick%20Guide%20%26%20Pune%20batch%20details)." 
-           target="_blank" rel="noopener noreferrer" 
-           class="gift-whatsapp-btn pulse-cta">
-          <svg viewBox="0 0 24 24" style="width: 26px; height: 26px; fill: currentColor; flex-shrink: 0;"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          <span>🔓 UNLOCK MY FREE GIFT ON WHATSAPP →</span>
-        </a>
-        <div class="gift-cta-note">
-          <span>⚡ Tap the button and message us on WhatsApp to receive your complete gift kit instantly.</span>
+      <!-- 4-Pillar Trust Bottom Grid matching reference -->
+      <div class="gift-trust-quad">
+        <div class="gift-trust-item">
+          <div class="gift-trust-icon-circle">🛡️</div>
+          <strong>Trusted Education</strong>
+          <span>17+ Years in Pune</span>
         </div>
-      </div>
-
-      <!-- Footer Trust Trio -->
-      <div class="gift-trust-footer">
-        <div class="gift-trust-pill">
-          <span>🛡️ Trusted by 20,000+ Learners</span>
+        <div class="gift-trust-item">
+          <div class="gift-trust-icon-circle">👨‍🏫</div>
+          <strong>Expert Guidance</strong>
+          <span>Kishor Sir 1-on-1</span>
         </div>
-        <div class="gift-trust-pill">
-          <span>📊 Practical Live Market Chart Analysis</span>
+        <div class="gift-trust-item">
+          <div class="gift-trust-icon-circle">⏱️</div>
+          <strong>Learn at Your Pace</strong>
+          <span>Weekend + 50 Lectures</span>
         </div>
-        <div class="gift-trust-pill">
-          <span>🎓 Direct 1-on-1 Mentorship</span>
+        <div class="gift-trust-item">
+          <div class="gift-trust-icon-circle">📈</div>
+          <strong>Build Your Future</strong>
+          <span>Disciplined Investing</span>
         </div>
       </div>
     </div>
