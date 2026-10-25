@@ -39,19 +39,19 @@
   <meta property="og:description"
     content="Pune's Most Trusted Share Market Institute since 2008. Complete 9-Module Stock Market Master Course with live practical charts & lifetime mentorship.">
   <meta property="og:url" content="https://www.chaitanyaclassespune.com/">
-  <meta property="og:image" content="https://www.chaitanyaclassespune.com/share_market_classes_in_pune.jpeg">
-  <meta property="og:image:secure_url" content="https://www.chaitanyaclassespune.com/share_market_classes_in_pune.jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image" content="https://www.chaitanyaclassespune.com/logo.png">
+  <meta property="og:image:secure_url" content="https://www.chaitanyaclassespune.com/logo.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:alt" content="Best Share Market Classes in Pune - Chaitanya Classes">
 
   <!-- Twitter / X Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Best Share Market Classes in Pune | Chaitanya Share Market Classes">
   <meta name="twitter:description"
     content="Learn stock market from basics to advanced technical analysis, futures & options with 17+ years experienced mentor Kishor Sir.">
-  <meta name="twitter:image" content="https://www.chaitanyaclassespune.com/share_market_classes_in_pune.jpeg">
+  <meta name="twitter:image" content="https://www.chaitanyaclassespune.com/logo.png">
 
   <!-- Theme Color & Web App Manifest -->
   <meta name="theme-color" content="#0A2540">
@@ -5072,6 +5072,47 @@
           handleLeadSubmit(name, phone, popupEnquiryForm, document.getElementById('popupSubmitBtn'), document.getElementById('popupFormSuccess'));
         });
       }
+
+      // ======================================================================
+      // Google Analytics 4 (GA4) Custom Event Tracking
+      // ======================================================================
+      // Helper function to safely send GA events
+      function trackGAEvent(eventName, eventParams) {
+        if (typeof gtag === 'function') {
+          gtag('event', eventName, eventParams || {});
+        }
+      }
+
+      // 1. Track All WhatsApp CTA Clicks (Conversions)
+      document.addEventListener('click', function (e) {
+        const link = e.target.closest('a[href*="wa.me"]');
+        if (link) {
+          const ctaText = link.innerText ? link.innerText.trim().substring(0, 50) : 'WhatsApp Link';
+          trackGAEvent('whatsapp_click', {
+            event_category: 'Lead Conversion',
+            event_label: ctaText,
+            link_url: link.href
+          });
+        }
+
+        // 2. Track Direct Phone Calls
+        const telLink = e.target.closest('a[href^="tel:"]');
+        if (telLink) {
+          trackGAEvent('phone_call_click', {
+            event_category: 'Direct Contact',
+            event_label: telLink.href
+          });
+        }
+
+        // 3. Track PDF Brochure & Syllabus Downloads
+        const pdfLink = e.target.closest('a[href$=".pdf"]');
+        if (pdfLink) {
+          trackGAEvent('file_download', {
+            file_name: 'chaitanya_share_market_syllabus.pdf',
+            file_extension: 'pdf'
+          });
+        }
+      });
     });
   </script>
 </body>
